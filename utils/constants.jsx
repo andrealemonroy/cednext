@@ -9,8 +9,8 @@ export const navLinks = [
     path: "/",
   },
   {
-    name: "Variación del dólar",
-    path: "/blog",
+    name: "Variación de dólar",
+    path: "/LineChart",
   },
   {
     name: "Calcular",

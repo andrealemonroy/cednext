@@ -1,6 +1,6 @@
 import React from "react";
 
-const Title = ({ type, text }) => {
+const Title = ({ type, text, align }) => {
   return (
     <>
       {type === "h1" ? (

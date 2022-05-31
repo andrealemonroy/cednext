@@ -22,6 +22,13 @@ export default function Home({
   exchangeBanks,
 }) {
   menu[0].path = 'exchangeHouses';
+  // menu[1].path = 'changeOnLine';
+  menu[2].path = 'variationDolar';
+  // menu[3].path = 'calculatorMoney';
+  menu[4].path = 'newsChange';
+  // menu[5].path = 'servicesChange';
+
+
   const [onlineExchange, setOnlineExchange] = useState();
   const [exchangeRate, setExchangeRate] = useState(exchangeSunat);
   const exportAsPicture = () => {
@@ -65,7 +72,7 @@ export default function Home({
     elem.remove();
   };
   const exchange = (values) => {
-    // setOnlineExchange(onlineExchangeHouses)
+    // setOnlineExchange()
     let update;
     values.currencySent === "PEN"
       ? (update = onlineExchangeHouses.map((item) => {
@@ -114,6 +121,8 @@ export default function Home({
       setOnlineExchange(res.data);
     });
   }, []);
+
+  console.log(exchangeSunat);
 
   return (
     <div>
