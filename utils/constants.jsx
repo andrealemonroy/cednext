@@ -10,7 +10,7 @@ export const navLinks = [
   },
   {
     name: "Variación de dólar",
-    path: "/LineChart",
+    path: "/variationDolar",
   },
   {
     name: "Calcular",
@@ -18,7 +18,7 @@ export const navLinks = [
   },
   {
     name: "Noticias",
-    path: "/",
+    path: "/newsChange",
   },
   {
     name: "Servicios",
