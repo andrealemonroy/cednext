@@ -4,6 +4,7 @@ import Blog from "../components/Blog";
 import Converter from "../components/Converter";
 import Footer from "../components/Footer";
 import ListOnlineExchange from "../components/ListOnlineExchange";
+import brandDesign from "./brandDesign";
 // import Navbar from "../components/Navbar";
 import Menu from "../components/Navbar/Menu";
 import Title from "../components/Title";
@@ -19,6 +20,7 @@ export default function Home({
   exchangeSunat,
   exchangeEuro,
   posts,
+  brandDesign,
   exchangeBanks,
 }) {
   menu[0].path = 'exchangeHouses';
@@ -26,7 +28,7 @@ export default function Home({
   menu[2].path = 'variationDolar';
   // menu[3].path = 'calculatorMoney';
   menu[4].path = 'newsChange';
-  // menu[5].path = 'servicesChange';
+  menu[5].path = 'brandDesign';
 
 
   const [onlineExchange, setOnlineExchange] = useState();

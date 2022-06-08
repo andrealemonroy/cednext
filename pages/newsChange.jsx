@@ -1,98 +1,12 @@
 import Questions from "../components/Questions";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Title from "../components/Title";
+import BasicInformation from "../components/BasicInformation";
 const newsChange = () => {
   return (
     <>
         <Navbar/>
-        <div className="pt-4">
-          <Title
-            type="h1"
-            align="center"
-            text="cuantoestaeldolar.pe"
-          />
-        </div>
-        <p className="p-6 text-2xl text-center">Somos una plataforma que tiene como propósito democratizar el precio del dólar en el Perú, su información es actualizada a diario.</p>
-        <div className="container mx-auto px-4 grid grid-cols-2 gap-4" >
-          <div className="flex">
-            <img src="img/compra.png" width={140} height={158}/>
-            <div className="p-6 flex-2 align-middle">
-              <div className="pt-8">
-                <Title
-                  type="h2"
-                  align="left"
-                  text="¿Qué es la compra?"
-                />
-              </div>
-              <div className="text-justify pt-6">
-                Es cuando una casa de cambio te compra tus dólares.
-              </div>
-            </div>
-          </div>
-          <div className="flex">
-            <img src="img/venta.png" width={105.27}/>
-            <div className="p-6 flex-2 align-middle">
-              <div className="pt-8">
-                <Title
-                  type="h2"
-                  align="left"
-                  text="¿Qué es venta?"
-                />
-              </div>
-              <div className="text-justify pt-6">
-                Es cuando una casa de cambio te VENDE sus dólares.   
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="container mx-auto pt-6 pb-2 px-8 grid grid-cols-2 gap-4" >
-          <div className="flex">
-            <div className="p-6 flex-2 align-middle">
-              <div className="pt-8">
-                <Title
-                  type="h2"
-                  align="left"
-                  text="¿Qué es el dólar?"
-                />
-              </div>
-              <div className="text-justify pt-6">
-              Es la moneda oficial de los Estados Unidos de América, cuya economía es una de las más importantes a las que el Perú está asociada.
-              </div>
-            </div>
-          </div>
-          
-          <div className="flex">
-            <div className="p-8 flex-2 align-middle">
-              <div className="pt-8">
-                <Title
-                  type="h2"
-                  align="left"
-                  text="Sobre el dólar en América"
-                />
-              </div>
-              <div className="text-justify pt-6">
-              El dólar americano tiene un gran impacto en la economía mundial y se utiliza en las transacciones internacionales de todo el mundo, además es la divisa más utilizada por los turistas.   
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="container mx-auto pt-1 pl-8 pr-8 pb-6 grid grid-cols-1 gap-4" >
-          <div className="flex">
-            <div className="p-6 flex-2 align-middle">
-              <div className="pt-8">
-                <Title
-                  type="h2"
-                  align="left"
-                  text="El dólar en el Perú"
-                />
-              </div>
-              <div className="text-justify pt-6">
-              El precio del dólar en el Perú, puede verse afectado por intervenciones del Banco Central de Reserva (BCR), a fin de estabilizar la cotización o el tipo de cambio del sol peruano. Asimismo, por diversos indicadores como el crecimiento del Producto Bruto Interno (PBI), el comportamiento de las exportaciones peruanas, la situación geopolítica internacional, etc.
-              </div>
-            </div>
-          </div>
-        </div>
+        <BasicInformation/>
         <Questions />
         <Footer/>
     </>

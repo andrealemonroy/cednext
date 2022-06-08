@@ -22,7 +22,7 @@ export const navLinks = [
   },
   {
     name: "Servicios",
-    path: "/",
+    path: "/brandDesign",
   },
 ];
 export const onlineExchangeHouses = [

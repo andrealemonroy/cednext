@@ -24,6 +24,10 @@ const exportAsPicture = () => {
 };
 
 const variationDolar = ( onlineVariationDolar, menu ) => {
+  
+  const tiempoTranscurrido = Date.now();
+  const hoy = new Date(tiempoTranscurrido);
+  
   return (
     <>
       <Navbar/>
@@ -40,7 +44,8 @@ const variationDolar = ( onlineVariationDolar, menu ) => {
           text="Sigue el tipo de cambio en línea y encuentra el mejor momento para comprar o vender dolares en el Perú" 
           align="center"
         />
-        <div className="w-full mt-10">
+
+        <div className="w-full mt-4">
           <div className="text-center">
             <button
               onClick={exportAsPicture}
@@ -49,6 +54,11 @@ const variationDolar = ( onlineVariationDolar, menu ) => {
               Compartir
             </button>
           </div>
+          <Title
+            type="h3"
+            text={hoy.toDateString()}
+            align="right"
+          />
         </div>
       </div>
       <div className="containerGraph pt-8">
