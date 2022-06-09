@@ -24,16 +24,12 @@ ChartJS.register(
   Filler
 );
 
-export default function LineChart({labels, scores}) {   
+export default function LineChart({labels, scores }) {   
     
 
 const options = {
     response : true,
     scales : {
-        y: {
-            min: 3.72,
-            max: 3.77
-        },
         x: {
             min:0
         }
@@ -46,10 +42,10 @@ const options = {
             datasets:[
                 {
                     label:"Compra",
-                    /* data: graphInfo.scores, */
                     data: scores,
                     // tension: 0.3,
                     borderColor: "rgb(124, 15, 82)",
+                    backgroundColor: "rgb(124, 15, 82)"
 
                 },
             ],
