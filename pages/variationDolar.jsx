@@ -2,6 +2,7 @@ import LineChart from "../components/LineChart";
 import Title from "../components/Title";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import {  useEffect, useState } from "react";
 
 const exportAsPicture = () => {
   var html = document.getElementsByTagName("HTML")[0];
@@ -28,6 +29,53 @@ const variationDolar = ( onlineVariationDolar, menu ) => {
   const tiempoTranscurrido = Date.now();
   const hoy = new Date(tiempoTranscurrido);
   
+  const [ graphInfo, setGraphInfo ] = useState({
+    labels : [],
+    scores : [],
+    min : 0 ,
+    max : 0
+    }
+);
+
+const formatDate = (date) => {
+    var d = new Date(date),
+      hours = '' + d.getHours(),
+      minu = '' + d.getMinutes();
+
+    return [hours, minu].join(':');
+  };
+  /* const scores =graphInfo.scores
+  const labels =graphInfo.labels */
+
+  useEffect(() => {
+    const buyDolar = async () => {
+        const {data} = await api.getBuy();
+        const dataBuy = (data[0].price);
+        dataBuy.forEach( (buyDolar,index) => {
+            if ( index % 10 === 0 ) {
+                scores.push(buyDolar.value);
+                labels.push(formatDate(buyDolar.dateTime));
+            }
+        })
+       /*  console.log("Valores: ",scores);
+        console.log("Labels: ",labels); */
+        setGraphInfo(
+            ...graphInfo,
+            labels,
+            scores
+        )
+    }
+    
+    buyDolar()
+    .catch(console.error)    
+    }
+,[])
+
+  /* const scores = [3.545, 3.650, 3.710, 3.732, 3.742, 3.753, 3.701, 3.721, 3.751, 3.761, 3.511, 3.651, 3.701, 3.731, 3.741, 3.751];
+  const labels = ['14:02','14:20','14:40','15:00','15:20','15:40','16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40','19:00'];  */
+
+
+
   return (
     <>
       <Navbar/>
@@ -62,7 +110,11 @@ const variationDolar = ( onlineVariationDolar, menu ) => {
         </div>
       </div>
       <div className="containerGraph pt-8">
-        <LineChart />
+        {graphInfo.scores.length && graphInfo.labels.length ?
+        (
+          <LineChart scores={graphInfo.scores} labels={graphInfo.labels} />
+        ):undefined}
+        {/* <LineChart scores={graphInfo.scores} labels={graphInfo.labels} /> */}
       </div>
       <div className="bg-white p-6">
       </div>

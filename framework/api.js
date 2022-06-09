@@ -24,6 +24,10 @@ const api = {
         const response = await fetch(`https://api2.cuantoestaeldolar.pe/posts`)
         console.log('res', response)
         return response.json()
+    },
+    getBuy: async ()=> {
+        const response = await fetch(`https://api2.cuantoestaeldolar.pe/bloomberg`)
+        return response.json()
     }
 }
 
