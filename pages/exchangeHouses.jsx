@@ -3,30 +3,60 @@ import api from "@framework/api";
 import Menu from "../components/Navbar/Menu";
 import Title from "../components/Title";
 
-const exchangeHouses = ({ cities, onlineExchangeHouses, menu }) => {
-  const [districs, setDistrics] = useState();
-  const [citySelected, setCitySelected] = useState()
-  const options = [
-    { id: 1, value: "Lima" },
-    { id: 2, value: "Cusco" },
-    { id: 3, value: "Piura" },
-    { id: 4, value: "Huancayo" },
-    { id: 5, value: "Arequipa" },
-    { id: 6, value: "Ayacucho" },
-    { id: 7, value: "Huaral" },
-    { id: 8, value: "Huaura" },
-    { id: 9, value: "Barranca" },
-    { id: 10, value: "Loreto" },
-    { id: 11, value: "Puno" },
-    { id: 12, value: "Tacna" },
-    { id: 13, value: "Chiclayo" },
-    { id: 14, value: "San Martín" },
-    { id: 15, value: "Trujillo" },
-  ];
+const exchangeHouses = ({
+  departaments,
+  provinces,
+  districts,
+  onlineExchangeHouses,
+  menu,
+}) => {
+  const [departament, setDepartament] = useState("");
+  const [province, setProvince] = useState("");
+  const [district, setDistrict] = useState("");
+
+  const onHandleOnChange = (e) => {
+    console.log(e.target.name);
+    switch (e.target.value) {
+      case "departament": {
+        setDepartament(e.target.value);
+        refresh();
+        const refresh = async () => {
+          const { data: provinces } = await api.getProvinces(departament);
+        };
+        console.log(provinces);
+        break;
+      }
+      case "province":
+        setProvince(e.target.value);
+        refresh1();
+        const refresh1 = async () => {
+          const { data: districts } = await api.getDistricts(
+            departament,
+            province
+          );
+        };
+        console.log(districts);
+        break;
+      case "district":
+        setDistrict(e.target.value);
+        refresh2();
+        const refresh2 = async () => {
+          const { data: homeChange } = await api.getDistricts(
+            departament,
+            province,
+            district
+          );
+        };
+        console.log(homeChange);
+        break;
+      default:
+        break;
+    }
+  };
 
   // useEffect(()=>{
-    // const { data } = api.getDistrics();
-    // setDistrics(data)
+  // const { data } = api.getDistrics();
+  // setDistrics(data)
   // }, [citySelected])
   const searchExchangeHouses = () => {};
   return (
@@ -37,22 +67,43 @@ const exchangeHouses = ({ cities, onlineExchangeHouses, menu }) => {
           <Title type="h6" text="Cambio de monedas en Perú" />
         </div>
         <select
-          id="countries"
+          id="departaments"
           className="bg-gray w-[300px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
-          {cities?.map((city) => (
-            <option key={city.id} value={city.id} onClick={()=>setCitySelected(city.id)}>
-              {city.departamento}
+          {departaments?.map((departament) => (
+            <option
+              name="departament"
+              key={departament.id}
+              value={departament.id}
+              onChange={onHandleOnChange}
+            >
+              {departament.departamento}
             </option>
           ))}
         </select>
         <select
+          id="provinces"
+          className="bg-gray w-[300px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          {provinces?.map((province) => (
+            <option
+              name="province"
+              key={province.id}
+              value={province.id}
+              onChange={() => setCitySelected(province.id)}
+            >
+              {province.provincia}
+            </option>
+          ))}
+        </select>
+
+        <select
           id="districts"
           className="bg-gray w-[300px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
-          {districs?.map((distric) => (
-            <option key={distric.id} value={distric.id}>
-              {distric.departamento}
+          {districts?.map((district) => (
+            <option name="district" key={district.id} value={district.id}>
+              {district.distrito}
             </option>
           ))}
         </select>
@@ -70,15 +121,18 @@ const exchangeHouses = ({ cities, onlineExchangeHouses, menu }) => {
 export default exchangeHouses;
 
 export const getStaticProps = async () => {
-  const { data: cities } = await api.getCities();
   const { data: menu } = await api.getmenu();
   const { data: onlineExchangeHouses } = await api.getOnlineExchange();
-
+  const { data: departaments } = await api.getDepartments();
+  const { data: provinces } = await api.getProvinces();
+  const { data: districts } = await api.getDistricts();
   return {
     props: {
       menu,
       onlineExchangeHouses,
-      cities
+      departaments,
+      provinces,
+      districts,
     },
   };
 };
