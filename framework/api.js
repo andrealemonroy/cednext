@@ -45,6 +45,10 @@ const api = {
     console.log("res", response);
     return response.json();
   },
+  getHomeChange: async (url) => {
+    const response = await fetch(`https://api2.cuantoestaeldolar.pe/directory/houses/${url}`);
+    return response.json();
+  },
 
   getPosts: async () => {
     const response = await fetch(`https://api2.cuantoestaeldolar.pe/posts`);
@@ -55,6 +59,8 @@ const api = {
     const response = await fetch(`https://api2.cuantoestaeldolar.pe/bloomberg`);
     return response.json();
   },
+  
+  
 };
 
 export default api;
