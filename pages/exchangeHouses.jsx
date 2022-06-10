@@ -4,7 +4,7 @@ import Menu from "../components/Navbar/Menu";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 
-const exchangeHouses = ({
+const ExchangeHouses = ({
   departaments,
   provinces,
   districts,
@@ -171,7 +171,7 @@ const exchangeHouses = ({
   );
 };
 
-export default exchangeHouses;
+export default ExchangeHouses;
 
 export const getStaticProps = async () => {
   const { data: menu } = await api.getmenu();
