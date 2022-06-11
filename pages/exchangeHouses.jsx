@@ -27,6 +27,15 @@ const ExchangeHouses = ({
   useEffect(() => {
     refresh();
     async function  refresh()  {
+      const { data } = await api.getHomeChange(casaCambio);
+      setHomeChange(data);
+    };
+
+  }, [casaCambio])
+
+  useEffect(() => {
+    refresh();
+    async function  refresh()  {
       const { data } = await api.getProvinces(departament);
       setProvincias(data);
     };
@@ -49,17 +58,9 @@ const ExchangeHouses = ({
     };
   }, [district])
 
-  // useEffect(() => {
-  //   refresh();
-  //   async function refresh()  {
-  //     const { data  } = await api.getHomeChange(casaCambio.url);
-  //     setCasaCambio(data);
-  //   };
-  // }, [casaCambio])
-
   const onHandleCasa = (e) => {
-    const option = e.target.value;
-    setCasaCambio(option);
+    const homeChange = e.target.name;
+    setCasaCambio(homeChange);
   }
 
   const onHandleDepartamento = (e) => {
@@ -147,14 +148,14 @@ const ExchangeHouses = ({
             </h1>          
           }
           {casasCambio && 
-            casasCambio?.map((casas) => (
-            
+            casasCambio?.map((casas) => (     
             <>
-              <div className="bg-slate-100 rounded-lg drop-shadow-md border-2 p-8" onClick={onHandleCasa} url={casas.url} >
-
-                <h1 className="text-3xl text-[#0096A6] font-black">
-                  {casas.nombre}
-                </h1>
+              <div className="bg-slate-100 rounded-lg drop-shadow-md border-2 p-8" >
+                <a name={casas.url} onClick={onHandleCasa}>
+                  <h1 className="text-3xl text-[#0096A6] font-black">
+                    {casas.nombre}
+                  </h1>
+                </a>
                 <h2 className="py-5 text-2xl">
                 Dirección: {casas.direccion}
                 </h2>

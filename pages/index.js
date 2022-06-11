@@ -24,6 +24,7 @@ export default function Home({
   exchangeBanks,
 }) {
   menu[0].path = 'exchangeHouses';
+  menu[1].path = 'homeChangeDetails';
   // menu[1].path = 'changeOnLine';
   menu[2].path = 'variationDolar';
   // menu[3].path = 'calculatorMoney';
