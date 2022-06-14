@@ -13,6 +13,7 @@ import html2canvas from "html2canvas";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import CasasCambio from "../components/CasasCambio/CasasCambio";
 export default function Home({
   menu,
   onlineExchangeHouses,
@@ -219,6 +220,8 @@ export default function Home({
           <Converter click={exchange} exchangeRate={exchangeRate} back={back} />
         </div>
         <ListOnlineExchange onlineExchangeHouses={onlineExchange} />
+        <hr/>
+        <CasasCambio onlineExchangeHouses={onlineExchangeHouses}/>
         <div className="w-full mt-10">
           <div className="text-center">
             <Title type="h7" text="Cambio Interbancario »" />

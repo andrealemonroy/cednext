@@ -1,0 +1,32 @@
+.casasContainer{
+  display: flex;
+}
+.CasaOnline{
+  padding: 5px 10px;
+  margin: 5px 0px;
+  line-height: 1.5;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-family: Roboto,sans-serif;
+  font-weight: bold;
+  justify-content: space-between;
+}
+.derecha, .izquierda{
+  width: 100%;
+}
+.casaImg{
+  width: 135px;
+  height: 29px;
+}
+.CasaBtn{
+  width: 100px;
+  height: 33px;
+  line-height: 33px;
+  border-radius: 20px;
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  transition: color .8s linear .2s;
+}
