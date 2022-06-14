@@ -23,14 +23,6 @@ export default function Home({
   brandDesign,
   exchangeBanks,
 }) {
-  menu[0].path = 'exchangeHouses';
-  menu[1].path = 'homeChangeDetails';
-  // menu[1].path = 'changeOnLine';
-  menu[2].path = 'variationDolar';
-  // menu[3].path = 'calculatorMoney';
-  menu[4].path = 'newsChange';
-  menu[5].path = 'brandDesign';
-
 
   const [onlineExchange, setOnlineExchange] = useState();
   const [exchangeRate, setExchangeRate] = useState(exchangeSunat);
