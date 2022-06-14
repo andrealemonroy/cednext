@@ -118,11 +118,12 @@ export default function Home({
     });
     return response;
   };
+
   useEffect(() => {
     // setOnlineExchange(onlineExchangeHouses);
-    fetchOnlineHouses().then((res) => {
-      setOnlineExchange(res.data);
-    });
+    // fetchOnlineHouses().then((res) => {
+    //   setOnlineExchange(res.data);
+    // });
   }, []);
 
   console.log(exchangeSunat);
