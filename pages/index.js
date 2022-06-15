@@ -4,6 +4,7 @@ import Blog from "../components/Blog";
 import Converter from "../components/Converter";
 import Footer from "../components/Footer";
 import ListOnlineExchange from "../components/ListOnlineExchange";
+import brandDesign from "./brandDesign";
 // import Navbar from "../components/Navbar";
 import Menu from "../components/Navbar/Menu";
 import Title from "../components/Title";
@@ -19,9 +20,17 @@ export default function Home({
   exchangeSunat,
   exchangeEuro,
   posts,
+  brandDesign,
   exchangeBanks,
 }) {
-  menu[0].path = 'exchangeHouses';
+  menu[0].path = "exchangeHouses";
+  //menu[1].path = "prueba";
+  menu[1].path = "exchangeHouses";
+  menu[2].path = "variationDolar";
+  // menu[3].path = 'calculatorMoney';
+  menu[4].path = "newsChange";
+  menu[5].path = "brandDesign";
+
   const [onlineExchange, setOnlineExchange] = useState();
   const [exchangeRate, setExchangeRate] = useState(exchangeSunat);
   const exportAsPicture = () => {
@@ -65,7 +74,7 @@ export default function Home({
     elem.remove();
   };
   const exchange = (values) => {
-    // setOnlineExchange(onlineExchangeHouses)
+    // setOnlineExchange()
     let update;
     values.currencySent === "PEN"
       ? (update = onlineExchangeHouses.map((item) => {
@@ -114,6 +123,8 @@ export default function Home({
       setOnlineExchange(res.data);
     });
   }, []);
+
+  console.log(exchangeSunat);
 
   return (
     <div>
@@ -217,7 +228,9 @@ export default function Home({
         <div className="w-full mt-10">
           <div className="text-center">
             <Title type="h7" text="Cambio Interbancario »" />
-            <p className="mt-2">Despliega para ver horarios del mercado bancario</p>
+            <p className="mt-2">
+              Despliega para ver horarios del mercado bancario
+            </p>
             <button
               onClick={exportAsPicture}
               className="mt-2 bg-lgreen w-[140px] h-9 text-white px-4 rounded-3xl shadow-sm shadow-black"

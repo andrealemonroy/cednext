@@ -38,6 +38,7 @@
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -47,9 +48,51 @@
   0% {
     transform: translateX(0%);
   }
+
   90% {
     transform: translateX(-100%);
   }
+}
+
+.titleDesign {
+  position: absolute;
+  left: 57%;
+  right: 0.29%;
+  top: 40%;
+  bottom: 0.5%;
+  width: 342px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 40px;
+
+  color: #FFFFFF;
+
+}
+
+.titleBrand {
+  position: absolute;
+  left: 24%;
+  right: -229.34%;
+  top: 6%;
+  bottom: 18%;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 40px;
+  /* identical to box height, or 96% */
+
+  letter-spacing: -0.02em;
+
+  color: #FFFFFF;
+}
+
+.gradient {
+  background: linear-gradient(67.6deg, #FFDF4C 6.79%, #0096A6 67.73%);
 }
 
 .nav-data {
@@ -109,6 +152,11 @@
   padding-bottom: 15px;
 }
 
-.containerConverter{
+.containerConverter {
   top: -40px
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 40vh;
 }
