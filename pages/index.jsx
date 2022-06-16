@@ -4,16 +4,13 @@ import Blog from "../components/Blog";
 import Converter from "../components/Converter";
 import Footer from "../components/Footer";
 import ListOnlineExchange from "../components/ListOnlineExchange";
-import brandDesign from "./brandDesign";
-// import Navbar from "../components/Navbar";
 import Menu from "../components/Navbar/Menu";
 import Title from "../components/Title";
-import { blogData } from "../utils/constants";
 import html2canvas from "html2canvas";
-
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import CasasCambio from "../components/CasasCambio/CasasCambio";
+
+
 export default function Home({
   menu,
   onlineExchangeHouses,
@@ -21,7 +18,6 @@ export default function Home({
   exchangeSunat,
   exchangeEuro,
   posts,
-  brandDesign,
   exchangeBanks,
 }) {
 
@@ -118,8 +114,6 @@ export default function Home({
     //   setOnlineExchange(res.data);
     // });
   }, []);
-
-  console.log(exchangeSunat);
 
   return (
     <div>

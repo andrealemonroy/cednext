@@ -2,7 +2,6 @@ import React from 'react'
 import s from './CasasCambio.module.css'
 
 export const CasasCambio = ({onlineExchangeHouses}) => {
-  console.log(onlineExchangeHouses)
   return (
     <>
       <p className="text-gray-800 font-bold text-2xl pb-4 mt-2">Cambio online</p>
