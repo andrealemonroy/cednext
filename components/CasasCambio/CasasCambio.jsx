@@ -10,7 +10,7 @@ export const CasasCambio = ({onlineExchangeHouses}) => {
           {
             onlineExchangeHouses.map(({img, color, rates}, index)=>
               index%2 == 0 && 
-              <div className={`${s.CasaOnline}`}>
+              <div key={index} className={`${s.CasaOnline}`}>
                 <div className={`${s.casaImg}`}>
                   <img src={img} alt="" />
                 </div>
@@ -33,7 +33,7 @@ export const CasasCambio = ({onlineExchangeHouses}) => {
           {
             onlineExchangeHouses.map(({img, color, rates}, index)=>
               index%2 != 0 && 
-              <div className={`${s.CasaOnline}`}>
+              <div key={index} className={`${s.CasaOnline}`}>
                 <div className={`${s.casaImg}`}>
                   <img src={img} alt="" />
                 </div>
