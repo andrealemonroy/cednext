@@ -14,7 +14,7 @@ export const navLinks = [
   },
   {
     name: "Calcular",
-    path: "/",
+    path: "/validateMoney",
   },
   {
     name: "Noticias",

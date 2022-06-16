@@ -27,6 +27,7 @@ export default function Home({
   //menu[1].path = "prueba";
   menu[1].path = "exchangeHouses";
   menu[2].path = "variationDolar";
+  menu[3].path = "validateMoney";
   // menu[3].path = 'calculatorMoney';
   menu[4].path = "newsChange";
   menu[5].path = "brandDesign";

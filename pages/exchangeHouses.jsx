@@ -4,6 +4,8 @@ import Menu from "../components/Navbar/Menu";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 import HomeChangeDetails from "../components/homeChangeDetails";
+import ListCard from "../components/listCard";
+import { MdSettingsApplications } from "react-icons/md";
 
 const initialHome = {
   id: "148",
@@ -64,11 +66,12 @@ const ExchangeHouses = ({
   const [casasCambio, setCasasCambio] = useState(false);
   const [casaCambio, setCasaCambio] = useState(null);
 
-  const [nombreDistrito, setNombreDistrito] = useState("Prueba");
-  const [departament, setDepartament] = useState("");
-  const [province, setProvince] = useState("");
-  const [district, setDistrict] = useState("");
+  const [nombreDistrito, setNombreDistrito] = useState("Cercado de Lima");
+  const [departament, setDepartament] = useState("15");
+  const [province, setProvince] = useState("127");
+  const [district, setDistrict] = useState("1251");
   const [homeChange, setHomeChange] = useState(initialHome);
+  const [inicio, setInicio] = useState(true);
 
   useEffect(() => {
     refresh();
@@ -128,6 +131,7 @@ const ExchangeHouses = ({
     const nombreDistrito = option[1];
     setDistrict(idDistrito);
     setNombreDistrito(nombreDistrito);
+    setInicio(false);
   };
 
   const searchExchangeHouses = () => {};
@@ -142,12 +146,15 @@ const ExchangeHouses = ({
         <div className="container lg:flex gap-4 px-2 sm:grid col-span-4">
           <select
             id="departaments"
-            className="bg-slate-200 w-[300px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="w-[300px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleDepartamento}
           >
-            <option value={-1}>Seleccione departamento</option>
+            <option className="bg-slate-200" value={-1}>
+              Seleccione departamento
+            </option>
             {departamentos?.map((departament) => (
               <option
+                className="bg-slate-300"
                 name="departament"
                 key={departament.id}
                 value={departament.id}
@@ -163,7 +170,12 @@ const ExchangeHouses = ({
           >
             <option value={-1}>Seleccione provincia</option>
             {provincias?.map((province) => (
-              <option name="province" key={province.id} value={province.id}>
+              <option
+                className="bg-slate-300"
+                name="province"
+                key={province.id}
+                value={province.id}
+              >
                 {province.provincia}
               </option>
             ))}
@@ -178,6 +190,7 @@ const ExchangeHouses = ({
             </option>
             {distritos?.map((district) => (
               <option
+                className="bg-slate-300"
                 key={district.id}
                 value={district.id + "-" + district.distrito}
               >
@@ -195,6 +208,10 @@ const ExchangeHouses = ({
         </button>
       </div>
       <div className="min-h-screen">
+        {inicio &&
+          departamentos?.map((el) => {
+            <ListCard name={el.departamento} imagen="" />;
+          })}
         {casaCambio && <HomeChangeDetails datos={homeChange} />}
         {casaCambio === null && district > 0 && (
           <h1 className="py-10 text-4xl text-gray-900 font-black">
@@ -213,6 +230,7 @@ const ExchangeHouses = ({
                 <a
                   className="no-underline hover:underline"
                   type={casas.url}
+                  href={"#|" + casas.url}
                   rel={casas.url}
                 >
                   <h1 className="text-3xl text-[#0096A6] font-black">
@@ -229,7 +247,6 @@ const ExchangeHouses = ({
     </div>
   );
 };
-
 export default ExchangeHouses;
 
 export const getStaticProps = async () => {
