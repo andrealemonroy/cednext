@@ -5,7 +5,7 @@ import Title from "../components/Title";
 import Footer from "../components/Footer";
 import HomeChangeDetails from "../components/homeChangeDetails";
 import ListCard from "../components/listCard";
-import { MdSettingsApplications } from "react-icons/md";
+import Money from "../components/Money";
 
 const initialHome = {
   id: "148",
@@ -70,16 +70,16 @@ const ExchangeHouses = ({
   const [departament, setDepartament] = useState("15");
   const [province, setProvince] = useState("127");
   const [district, setDistrict] = useState("1251");
-  const [homeChange, setHomeChange] = useState(initialHome);
+  const [homeChange, setHomeChange] = useState(false);
   const [inicio, setInicio] = useState(true);
 
-  useEffect(() => {
+  /* useEffect(() => {
     refresh();
     async function refresh() {
       const { data } = await api.getHomeChange(casaCambio);
-      setHomeChange(data);
+      setHomeChange(data); //[] true
     }
-  }, [casaCambio]);
+  }, [casaCambio]); */
 
   useEffect(() => {
     refresh();
@@ -111,6 +111,11 @@ const ExchangeHouses = ({
 
   const onHandleCasa = (url) => {
     setCasaCambio(url);
+    refresh();
+    async function refresh() {
+      const { data } = await api.getHomeChange(url);
+      setHomeChange(data[0]); //[] true
+    }
   };
 
   const onHandleDepartamento = (e) => {
@@ -118,8 +123,10 @@ const ExchangeHouses = ({
     setDepartament(option);
     setProvince(-1);
     setDistrict(-1);
+    setHomeChange(false);
     setCasaCambio(null);
   };
+
   const onHandleProvincia = (e) => {
     const option = e.target.value;
     setProvince(option);
@@ -212,36 +219,45 @@ const ExchangeHouses = ({
           departamentos?.map((el) => {
             <ListCard name={el.departamento} imagen="" />;
           })}
-        {casaCambio && <HomeChangeDetails datos={homeChange} />}
+        {homeChange && <HomeChangeDetails datos={homeChange} />}
         {casaCambio === null && district > 0 && (
           <h1 className="py-10 text-4xl text-gray-900 font-black">
             Casas de cambio de {nombreDistrito}
           </h1>
         )}
-        {casaCambio === null &&
-          casasCambio &&
-          casasCambio?.map((casas) => (
-            <ul key={casas.url}>
-              <div
-                key={casas.url}
-                className="bg-slate-100 rounded-lg drop-shadow-md border-2 p-8"
-                onClick={() => onHandleCasa(casas.url)}
-              >
-                <a
-                  className="no-underline hover:underline"
-                  type={casas.url}
-                  href={"#|" + casas.url}
-                  rel={casas.url}
-                >
-                  <h1 className="text-3xl text-[#0096A6] font-black">
-                    {casas.nombre}
-                  </h1>
-                </a>
-                <h2 className="py-5 text-2xl">Dirección: {casas.direccion}</h2>
-                <h2 className="py-2">Referencia: {casas.referencia}</h2>
-              </div>
-            </ul>
-          ))}
+        <div className="containerHome pt-10 col-2">
+          <div className="homeChangeList">
+            {casaCambio === null &&
+              casasCambio &&
+              casasCambio?.map((casas) => (
+                <ul key={casas.url}>
+                  <div
+                    key={casas.url}
+                    className="bg-slate-100 rounded-lg drop-shadow-md border-2 p-8"
+                    onClick={() => onHandleCasa(casas.url)}
+                  >
+                    <a
+                      className="no-underline hover:underline"
+                      type={casas.url}
+                      href={"#|" + casas.url}
+                      rel={casas.url}
+                    >
+                      <h1 className="text-3xl text-[#0096A6] font-black">
+                        {casas.nombre}
+                      </h1>
+                    </a>
+                    <h2 className="py-5 text-2xl">
+                      Dirección: {casas.direccion}
+                    </h2>
+                    <h2 className="py-2">Referencia: {casas.referencia}</h2>
+                  </div>
+                </ul>
+              ))}
+          </div>
+          <div className="Money">
+            <Money />
+          </div>
+        </div>
       </div>
       <Footer />
     </div>

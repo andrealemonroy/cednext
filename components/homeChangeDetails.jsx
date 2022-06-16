@@ -4,7 +4,8 @@ import MapView from "./MapView";
 import Navbar from "./Navbar";
 
 const HomeChangeDetails = ({ datos }) => {
-  console.log(datos);
+  console.log("Data", datos);
+  /* const data = datos[0] */
   return (
     <>
       <div className="pt-10">

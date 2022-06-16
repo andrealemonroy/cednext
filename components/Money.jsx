@@ -1,166 +1,119 @@
-import React from "react";
-import Title from "./Title";
-function Questions() {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
+
+function Money() {
+  const [selected, setSelected] = useState(null);
+
+  const monedas = [
+    {
+      titulo: "dolares",
+      moneys: [
+        {
+          denominacion: "$ 100",
+          link: "https://cuantoestaeldolar.pe/blog/como-detectar-billetes-de-100-dolares-falsos/",
+        },
+        {
+          denominacion: "$ 50",
+          link: "https://cuantoestaeldolar.pe/blog/como-detectar-50-dolares-falsos/",
+        },
+        {
+          denominacion: "$ 20",
+          link: "https://cuantoestaeldolar.pe/blog/como-identificar-20-dolares-falsos/",
+        },
+      ],
+    },
+    {
+      titulo: "soles",
+      moneys: [
+        {
+          denominacion: "S/ 200",
+          link: "https://cuantoestaeldolar.pe/blog/7-claves-para-detectar-si-un-billete-de-s-200-es-falso/",
+        },
+        {
+          denominacion: "S/ 100",
+          link: "https://cuantoestaeldolar.pe/blog/6-claves-para-detectar-si-un-billete-de-s-100-es-falso/",
+        },
+        {
+          denominacion: "S/ 50",
+          link: "https://cuantoestaeldolar.pe/blog/7-claves-para-detectar-si-un-billete-de-s-50-soles-es-falso/",
+        },
+        {
+          denominacion: "S/ 10",
+          link: "#",
+        },
+      ],
+    },
+  ];
+
+  const toggle = (i) => {
+    if (selected === i) {
+      return setSelected(null);
+    }
+    setSelected(i);
+  };
   return (
-    <>
-      <div className="relative w-[1000px] overflow-hidden">
-        <input
-          type="checkbox"
-          className="
-              peer
-              absolute top-0 inset-x-0
-              w-full h-12
-              opacity-0 z-10 cursor-pointer
-            "
-        />
-        <div
-          className="
-            bg-gray-200
-            h-14 w-full 
-            pt-2 pl-4
-            flex-items-center
-            align-middle
-          "
-        >
-          <Title type="h2" text="DÓLARES" />
-        </div>
-        <div
-          className="
-            absolute top-3 right-3
-            text-black
-            transition-transform duration-500
-            rotate-0 peer-checked:rotate-180
-          "
-        >
-          {/* arrow icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
-        <div
-          className="
-              overflow-hidden
-              transition-all duration-500
-              max-h-0 peer-checked:max-h-full
-          "
-        >
-          <div className="p-4">
-            <div className="pl-10 pt-6 text-justify">
-              <Title type="h2" text="$ 100 >>" />
-            </div>
-            <div className="pl-10 pt-6 text-justify">
-              <Title type="h2" text="$ 50 >>" />
-            </div>
-            <div className="pl-10 pt-6  text-justify">
-              <Title type="h2" text="$ 20 >>" />
-            </div>
+    <div className="wrapper">
+      <div className="acordion">
+        <div className="item">
+          <div className="title" onClick={() => toogle(i)}>
+            <h2>DOLARES</h2>
+            <span>+</span>
+          </div>
+          <div>
+            <li className="content font-sans" key={1}>
+              <a href={monedas[0].moneys[0].link}>
+                {monedas[0].moneys[0].denominacion}
+                <FontAwesomeIcon icon="fa-solid fa-angles-right" />
+              </a>
+            </li>
+            <li className="content font-sans" key={2}>
+              <a href={monedas[0].moneys[1].link}>
+                {monedas[0].moneys[1].denominacion}
+                <FontAwesomeIcon icon="fa-solid fa-angles-right" />
+              </a>
+            </li>
+            <li className="content font-sans" key={3}>
+              <a href={monedas[0].moneys[2].link}>
+                {monedas[0].moneys[2].denominacion}
+                <FontAwesomeIcon icon="fa-solid fa-angles-right" />
+              </a>
+            </li>
+          </div>
+          <div className="title" onClick={() => toogle(i)}>
+            <h2>SOLES</h2>
+            <span>+</span>
+          </div>
+          <div>
+            <li className="content font-sans" key={1}>
+              <a href={monedas[1].moneys[0].link}>
+                {monedas[1].moneys[0].denominacion}
+                <FontAwesomeIcon icon="fa-solid fa-angles-right" />
+              </a>
+            </li>
+            <li className="content font-sans" key={2}>
+              <a href={monedas[1].moneys[1].link}>
+                {monedas[1].moneys[1].denominacion}
+                <FontAwesomeIcon icon="fa-solid fa-angles-right" />
+              </a>
+            </li>
+            <li className="content font-sans" key={3}>
+              <a href={monedas[1].moneys[2].link}>
+                {monedas[1].moneys[2].denominacion}
+                <FontAwesomeIcon icon="fa-solid fa-angles-right" />
+              </a>
+            </li>
+            <li className="content font-sans" key={4}>
+              <a href={monedas[1].moneys[3].link}>
+                {monedas[1].moneys[3].denominacion}
+                <FontAwesomeIcon icon="fa-solid fa-angles-right" />
+              </a>
+            </li>
           </div>
         </div>
-        <div className=" bg-white p-8"></div>
       </div>
-      <div className="relative w-[1000px] overflow-hidden">
-        <input
-          type="checkbox"
-          className="
-              peer
-              absolute top-0 inset-x-0
-              w-full h-12
-              opacity-0 z-10 cursor-pointer
-            "
-        />
-        <div
-          className="
-            bg-gray-200
-            h-14 w-full 
-            pt-2 pl-4
-            flex-items-center
-            align-middle
-          "
-        >
-          <Title type="h2" text="SOLES" />
-        </div>
-        <div
-          className="
-            absolute top-3 right-3
-            bg-emerald-700
-            text-black
-            transition-transform duration-500
-            rotate-0 peer-checked:rotate-180
-          "
-        >
-          {/* arrow icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
-        <div
-          className=" 
-              overflow-hidden
-              transition-all duration-500
-              max-h-0 peer-checked:max-h-full
-          "
-        >
-          <div className="p-4 ">
-            <div className="pl-0 pt-0 text-justify bg-emerald-700 cursor-pointer border-b-2 border-slate-50">
-              <h2
-                href="https://cuantoestaeldolar.pe/blog/7-claves-para-detectar-si-un-billete-de-s-200-es-falso/"
-                className="backgroundMoney"
-              >
-                {"S / 200 >>"}
-              </h2>
-            </div>
-            <div className="pl-0 pt-0 text-justify bg-emerald-700 cursor-pointer border-b-2 border-slate-50">
-              <h2
-                href="https://cuantoestaeldolar.pe/blog/7-claves-para-detectar-si-un-billete-de-s-200-es-falso/"
-                className="backgroundMoney"
-              >
-                {"S / 100 >>"}
-              </h2>
-            </div>
-            <div className="pl-0 pt-0 text-justify bg-emerald-700 cursor-pointer border-b-2 border-slate-50">
-              <h2
-                href="https://cuantoestaeldolar.pe/blog/7-claves-para-detectar-si-un-billete-de-s-200-es-falso/"
-                className="backgroundMoney"
-              >
-                {"S / 50 >>"}
-              </h2>
-            </div>
-            <div className="pl-0 pt-0 text-justify bg-emerald-700 cursor-pointer border-b-2 border-slate-50">
-              <h2
-                href="https://cuantoestaeldolar.pe/blog/7-claves-para-detectar-si-un-billete-de-s-200-es-falso/"
-                className="backgroundMoney"
-              >
-                {"S / 10 >>"}
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div className=" bg-white p-8"></div>
-      </div>
-    </>
+    </div>
   );
 }
 
-export default Questions;
+export default Money;
