@@ -15,6 +15,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import GraphVariation from "../components/GraphVariation";
 import Money from "../components/Money";
+import BasicInformation from "../components/BasicInformation";
+import Questions from "../components/Questions";
 export default function Home({
   dataBuy,
   menu,
@@ -309,7 +311,7 @@ export default function Home({
         <div className="h-24 bg-lightGray w-full justify-center align-items-center"></div>
         <Blog blogData={posts} />
         <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
-        <div className="grid grid-cols-2">
+        <div className="container grid grid-cols-2 w-full">
           <div className="grid grid-cols-2">
             <div className=""></div>
             <div className=""></div>
@@ -319,6 +321,8 @@ export default function Home({
           </div>
         </div>
       </div>
+      <BasicInformation />
+      <Questions />
       <Footer />
     </div>
   );
