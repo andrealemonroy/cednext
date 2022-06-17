@@ -10,15 +10,15 @@ function Money() {
       titulo: "dolares",
       moneys: [
         {
-          denominacion: "$ 100",
+          denominacion: "$ 100 >>",
           link: "https://cuantoestaeldolar.pe/blog/como-detectar-billetes-de-100-dolares-falsos/",
         },
         {
-          denominacion: "$ 50",
+          denominacion: "$ 50 >>",
           link: "https://cuantoestaeldolar.pe/blog/como-detectar-50-dolares-falsos/",
         },
         {
-          denominacion: "$ 20",
+          denominacion: "$ 20 >>",
           link: "https://cuantoestaeldolar.pe/blog/como-identificar-20-dolares-falsos/",
         },
       ],
@@ -27,19 +27,19 @@ function Money() {
       titulo: "soles",
       moneys: [
         {
-          denominacion: "S/ 200",
+          denominacion: "S/ 200 >>",
           link: "https://cuantoestaeldolar.pe/blog/7-claves-para-detectar-si-un-billete-de-s-200-es-falso/",
         },
         {
-          denominacion: "S/ 100",
+          denominacion: "S/ 100 >>",
           link: "https://cuantoestaeldolar.pe/blog/6-claves-para-detectar-si-un-billete-de-s-100-es-falso/",
         },
         {
-          denominacion: "S/ 50",
+          denominacion: "S/ 50 >>",
           link: "https://cuantoestaeldolar.pe/blog/7-claves-para-detectar-si-un-billete-de-s-50-soles-es-falso/",
         },
         {
-          denominacion: "S/ 10",
+          denominacion: "S/ 10 >>",
           link: "#",
         },
       ],
@@ -61,19 +61,19 @@ function Money() {
             <span>+</span>
           </div>
           <div>
-            <li className="content font-sans" key={1}>
+            <li className="content font-body font-normal" key={1}>
               <a href={monedas[0].moneys[0].link}>
                 {monedas[0].moneys[0].denominacion}
                 <FontAwesomeIcon icon="fa-solid fa-angles-right" />
               </a>
             </li>
-            <li className="content font-sans" key={2}>
+            <li className="content font-body font-normal" key={2}>
               <a href={monedas[0].moneys[1].link}>
                 {monedas[0].moneys[1].denominacion}
                 <FontAwesomeIcon icon="fa-solid fa-angles-right" />
               </a>
             </li>
-            <li className="content font-sans" key={3}>
+            <li className="content font-body font-normal" key={3}>
               <a href={monedas[0].moneys[2].link}>
                 {monedas[0].moneys[2].denominacion}
                 <FontAwesomeIcon icon="fa-solid fa-angles-right" />
@@ -85,25 +85,25 @@ function Money() {
             <span>+</span>
           </div>
           <div>
-            <li className="content font-sans" key={1}>
+            <li className="content font-body font-normal" key={1}>
               <a href={monedas[1].moneys[0].link}>
                 {monedas[1].moneys[0].denominacion}
                 <FontAwesomeIcon icon="fa-solid fa-angles-right" />
               </a>
             </li>
-            <li className="content font-sans" key={2}>
+            <li className="content font-body font-normal" key={2}>
               <a href={monedas[1].moneys[1].link}>
                 {monedas[1].moneys[1].denominacion}
                 <FontAwesomeIcon icon="fa-solid fa-angles-right" />
               </a>
             </li>
-            <li className="content font-sans" key={3}>
+            <li className="content font-body font-normal" key={3}>
               <a href={monedas[1].moneys[2].link}>
                 {monedas[1].moneys[2].denominacion}
                 <FontAwesomeIcon icon="fa-solid fa-angles-right" />
               </a>
             </li>
-            <li className="content font-sans" key={4}>
+            <li className="content font-body font-normal" key={4}>
               <a href={monedas[1].moneys[3].link}>
                 {monedas[1].moneys[3].denominacion}
                 <FontAwesomeIcon icon="fa-solid fa-angles-right" />

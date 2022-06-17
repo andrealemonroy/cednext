@@ -13,7 +13,10 @@ import html2canvas from "html2canvas";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import GraphVariation from "../components/GraphVariation";
+import Money from "../components/Money";
 export default function Home({
+  dataBuy,
   menu,
   onlineExchangeHouses,
   exchangeDolar,
@@ -226,6 +229,7 @@ export default function Home({
           <Converter click={exchange} exchangeRate={exchangeRate} back={back} />
         </div>
         <ListOnlineExchange onlineExchangeHouses={onlineExchange} />
+        <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
         <div className="w-full mt-10">
           <div className="text-center">
             <Title type="h7" text="Cambio Interbancario »" />
@@ -300,9 +304,21 @@ export default function Home({
             </div>
           </div>
         </div>
+        <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
+        <GraphVariation dataBuy={dataBuy} />
+        <div className="h-24 bg-lightGray w-full justify-center align-items-center"></div>
         <Blog blogData={posts} />
+        <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
+        <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2">
+            <div className=""></div>
+            <div className=""></div>
+          </div>
+          <div className="grid">
+            <Money />
+          </div>
+        </div>
       </div>
-
       <Footer />
     </div>
   );
@@ -310,6 +326,8 @@ export default function Home({
 
 export const getStaticProps = async () => {
   const { data: menu } = await api.getmenu();
+  const { data } = await api.getBuy();
+  const dataBuy = data[0].price;
   const { data: onlineExchangeHouses } = await api.getOnlineExchange();
   const { data: exchangeSunat } = await api.getExchange("sbs");
   const { data: exchangeDolar } = await api.getExchange("calle");
@@ -325,6 +343,7 @@ export const getStaticProps = async () => {
       exchangeEuro,
       posts,
       exchangeBanks,
+      dataBuy,
     },
   };
 };
