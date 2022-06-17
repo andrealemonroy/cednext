@@ -1,10 +1,17 @@
+import { ManagedUIContext } from "../components/contex";
 import "../styles/index.scss";
 
+const Noop = ({ children }) => <>{children}</>
+
 function MyApp({ Component, pageProps }) {
+  const Layout =  Component.Layout || Noop
+
   return (
-    <div className="w-screen sm:max-w-5xl mx-auto">
-      <Component {...pageProps} />
-    </div>
+    <ManagedUIContext>
+      <Layout pageProps={pageProps}>
+        <Component {...pageProps} />
+      </Layout>
+    </ManagedUIContext>
   );
 }
 

@@ -4,8 +4,9 @@ import Title from "../../components/Title";
 import Footer from "../../components/Footer";
 import Filter from "../../components/Filter/Filter";
 import Menu from "../../components/Navbar/Menu";
+import { Layout } from "../../components/Layout";
 
-export const directorio = ({menu, departaments}) => {
+export default function Directorio({menu, departaments}){
   return (
     <div className="h-[100%]">
       <Menu menu={menu} />
@@ -40,6 +41,7 @@ export const directorio = ({menu, departaments}) => {
 export const getStaticProps = async ({params}) => {
   const { data: departaments } = await api.getDepartments();
   const { data: menu } = await api.getmenu();
+  const { data: ads } = await api.publicidad();
   const { directorio5 } = params;
 
   if( directorio5 != 'directorio5' ) return { notFound: true }
@@ -47,7 +49,8 @@ export const getStaticProps = async ({params}) => {
   return {
     props: {
       menu,
-      departaments
+      departaments,
+      ads
     },
   };
 
@@ -60,4 +63,4 @@ export const getStaticPaths = async () => {
   }
 }
 
-export default directorio;
+Directorio.Layout = Layout

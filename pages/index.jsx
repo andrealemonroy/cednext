@@ -1,5 +1,4 @@
 import api from "@framework/api";
-import Head from "next/head";
 import Blog from "../components/Blog";
 import Converter from "../components/Converter";
 import Footer from "../components/Footer";
@@ -9,6 +8,9 @@ import Title from "../components/Title";
 import html2canvas from "html2canvas";
 import { useEffect, useState } from "react";
 import CasasCambio from "../components/CasasCambio/CasasCambio";
+import { Layout } from "../components/Layout";
+import AdsSlot from "../components/ads/AdsSlot";
+import { defineSlot } from "../framework/lib";
 
 
 export default function Home({
@@ -19,7 +21,11 @@ export default function Home({
   exchangeEuro,
   posts,
   exchangeBanks,
+  ads,
 }) {
+
+  const { div_id:embi } = ads.find(item=>item.name === 'd_embi_ced_39');
+  const { div_id:dF728x90 } = ads.find(item=>item.name === 'dF728x90');
 
   const [onlineExchange, setOnlineExchange] = useState();
   const [exchangeRate, setExchangeRate] = useState(exchangeSunat);
@@ -115,19 +121,12 @@ export default function Home({
     // });
   }, []);
 
+  useEffect(() => {
+    defineSlot(embi);
+  }, []);
+
   return (
     <div>
-      <Head>
-        <title>
-          Tipo de Cambio | Dólares a Soles | Precio del dólar en el Perú |
-          compra y venta de dólares en Perú | Cuánto esta el dolar en el Perú
-        </title>
-        <meta
-          name="description"
-          content="Tipo de cambio, precio del dólar en soles para hoy - cotización del dolar en el Perú  - SUNAT - SBS y paralelo - Cambios Online - Cambiar dólares a soles"
-        />
-        <link rel="icon" href="/icons/logo.svg" />
-      </Head>
       <Menu menu={menu} onlineExchangeHouses={onlineExchangeHouses} />
       <div className="px-4">
         <div className="w-full">
@@ -216,6 +215,7 @@ export default function Home({
         <ListOnlineExchange onlineExchangeHouses={onlineExchange} />
         <hr/>
         <CasasCambio onlineExchangeHouses={onlineExchangeHouses}/>
+        {/* <AdsSlot slodId={ embi } /> */}
         <div className="w-full mt-10">
           <div className="text-center">
             <Title type="h7" text="Cambio Interbancario »" />
@@ -288,6 +288,7 @@ export default function Home({
             </div>
           </div>
         </div>
+        <AdsSlot slodId={embi} />
         <Blog blogData={posts} />
       </div>
 
@@ -304,6 +305,8 @@ export const getStaticProps = async () => {
   const { data: exchangeEuro } = await api.getExchange("euro");
   const { data: exchangeBanks } = await api.getExchange("interbank");
   const { data: posts } = await api.getPosts();
+  const { data: ads } = await api.publicidad();
+  // console.log(ads)
   return {
     props: {
       menu,
@@ -313,6 +316,9 @@ export const getStaticProps = async () => {
       exchangeEuro,
       posts,
       exchangeBanks,
+      ads
     },
   };
 };
+
+Home.Layout = Layout
