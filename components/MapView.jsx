@@ -30,7 +30,6 @@ const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
 const MapView = ({ datos }) => {
   const latitud = datos.latitud;
   const longitud = datos.longitud;
-  console.log(latitud, longitud);
   const position = [latitud, longitud];
   return (
     <MapContainer center={position} zoom={16} scrollWheelZoom={false}>

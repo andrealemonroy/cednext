@@ -25,8 +25,6 @@ ChartJS.register(
 );
 
 export default function LineChart({ scores, labels }) {
-  console.log("scores   ", scores);
-  console.log("labels   ", labels);
   const options = {
     response: true,
     scales: {

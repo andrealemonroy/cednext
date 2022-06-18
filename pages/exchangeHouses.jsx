@@ -142,7 +142,6 @@ const ExchangeHouses = ({
   };
 
   const searchExchangeHouses = () => {};
-  console.log(homeChange);
   return (
     <div className="h-[100%]">
       <Menu menu={menu} onlineExchangeHouses={onlineExchangeHouses} />

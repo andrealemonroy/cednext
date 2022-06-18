@@ -17,6 +17,7 @@ import GraphVariation from "../components/GraphVariation";
 import Money from "../components/Money";
 import BasicInformation from "../components/BasicInformation";
 import Questions from "../components/Questions";
+import EquivalenceMoney from "../components/EquivalenceMoney";
 export default function Home({
   dataBuy,
   menu,
@@ -132,6 +133,13 @@ export default function Home({
 
   console.log(exchangeSunat);
 
+  const buyDolar = exchangeSunat.buy.cost;
+  const saleDolar = exchangeSunat.sale.cost;
+  // const [buyDolar, setBuyDolar] = useState();
+  // const [saleDolar, setSaleDolar] = useState();
+
+  // setBuyDolar();
+  // setSaleDolar();
   return (
     <div>
       <Head>
@@ -311,12 +319,12 @@ export default function Home({
         <div className="h-24 bg-lightGray w-full justify-center align-items-center"></div>
         <Blog blogData={posts} />
         <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
-        <div className="container grid grid-cols-2 w-full">
-          <div className="grid grid-cols-2">
-            <div className=""></div>
-            <div className=""></div>
+        <div className="container grid grid-cols-5 w-full">
+          <div className="grid col-span-3">
+            <EquivalenceMoney buy={buyDolar} sale={saleDolar} />
           </div>
-          <div className="grid">
+          <div className="grid col-span-2">
+            <Title type="h2" text="Detecta billetes falsos »" />
             <Money />
           </div>
         </div>
