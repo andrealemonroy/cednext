@@ -18,6 +18,7 @@ import Money from "../components/Money";
 import BasicInformation from "../components/BasicInformation";
 import Questions from "../components/Questions";
 import EquivalenceMoney from "../components/EquivalenceMoney";
+import Quotation from "../components/Quotation";
 export default function Home({
   dataBuy,
   menu,
@@ -101,15 +102,6 @@ export default function Home({
           return obj;
         }));
     setOnlineExchange(update);
-    // values.currencySent === "PEN" ? setOnlineExchange(preExchange  => preExchange.map(item => ({...item, cost: cost *values.firstValue}))) : setOnlineExchange(preExchange  => preExchange.map(item => ({...item, cost: cost /values.firstValue})))
-    // console.log(onlineExchange)
-    // onlineExchangeHouses.map(item => {
-    //   // console.log(item)
-    //   item.rates[0].buy.cost = item.rates[0].buy.cost * values.firstValue
-    //   // return (
-    //   //   setitem.rates[0].buy * values.firstValue
-    //   // )
-    // })
   };
   const back = () => {
     fetchOnlineHouses().then((res) => {
@@ -125,7 +117,6 @@ export default function Home({
     return response;
   };
   useEffect(() => {
-    // setOnlineExchange(onlineExchangeHouses);
     fetchOnlineHouses().then((res) => {
       setOnlineExchange(res.data);
     });
@@ -135,11 +126,7 @@ export default function Home({
 
   const buyDolar = exchangeSunat.buy.cost;
   const saleDolar = exchangeSunat.sale.cost;
-  // const [buyDolar, setBuyDolar] = useState();
-  // const [saleDolar, setSaleDolar] = useState();
 
-  // setBuyDolar();
-  // setSaleDolar();
   return (
     <div>
       <Head>
@@ -164,80 +151,25 @@ export default function Home({
             />
           </div>
         </div>
+        {/* <div className="grid justify-between grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 "> */}
         <div id="converter" className="sm:flex justify-between mt-5">
-          <div className="mt-10">
-            <div className="flex sm:w-[500px]">
-              <div className="w-[200px] flex">
-                <Title type="h2" text="Cotización" />
-                <button
-                  onClick={exportAsPicture}
-                  className="bg-lgreen ml-2 w-[140px] h-9 text-white px-4 rounded-3xl shadow-sm shadow-black"
-                >
-                  Compartir
-                </button>
-              </div>
-              <div className="flex my-auto justify-around w-full">
-                <div>
-                  <Title type="h4" text="Compra" />
-                </div>
-                <div>
-                  <Title type="h4" text="Venta" />
-                </div>
-              </div>
-            </div>
-            <div className=" sm:w-[500px]">
-              <div className="flex py-3">
-                <div className="w-[350px] flex align-middle">
-                  <div className="w-10 my-auto">
-                    <img className="w-7 max-h-9" src="/icons/logoSunat.svg" />
-                  </div>
-                  <Title type="h5" text="Sunat" />
-                </div>
-                <div className="flex my-auto justify-around w-full">
-                  <div>
-                    <Title type="h5" text={exchangeSunat?.buy.cost} />
-                  </div>
-                  <div>
-                    <Title type="h5" text={exchangeSunat?.sale.cost} />
-                  </div>
-                </div>
-              </div>
-              <div className="flex py-3 bg-gray">
-                <div className="w-[350px] flex align-middle">
-                  <div className="w-10 my-auto">
-                    <img className="w-7 max-h-9" src="/icons/dolar.svg" />
-                  </div>
-                  <Title type="h5" text="Dólar" />
-                </div>
-                <div className="flex my-auto justify-around w-full">
-                  <div>
-                    <Title type="h5" text={exchangeDolar?.buy.cost} />
-                  </div>
-                  <div>
-                    <Title type="h5" text={exchangeDolar?.sale.cost} />
-                  </div>
-                </div>
-              </div>
-              <div className="flex py-3">
-                <div className="w-[350px] flex align-middle">
-                  <div className="w-10 my-auto">
-                    <img className="w-7 max-h-9" src="/icons/euro.svg" />
-                  </div>
-                  <Title type="h5" text="Euro" />
-                </div>
-                <div className="flex my-auto justify-around w-full">
-                  <div>
-                    <Title type="h5" text={exchangeEuro?.buy.cost} />
-                  </div>
-                  <div>
-                    <Title type="h5" text={exchangeEuro?.sale.cost} />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="sm:mb-16">
+            <Quotation
+              exportAsPicture={exportAsPicture}
+              exchangeSunat={exchangeSunat}
+              exchangeDolar={exchangeDolar}
+              exchangeEuro={exchangeEuro}
+            />
           </div>
-          <Converter click={exchange} exchangeRate={exchangeRate} back={back} />
+          <div>
+            <Converter
+              click={exchange}
+              exchangeRate={exchangeRate}
+              back={back}
+            />
+          </div>
         </div>
+        {/* </div> */}
         <ListOnlineExchange onlineExchangeHouses={onlineExchange} />
         <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
         <div className="w-full mt-10">
@@ -317,18 +249,19 @@ export default function Home({
         <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
         <GraphVariation dataBuy={dataBuy} />
         <div className="h-24 bg-lightGray w-full justify-center align-items-center"></div>
-        <Blog blogData={posts} />
+        <Blog blogData={posts} className="justify-center" />
         <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
-        <div className="container grid grid-cols-5 w-full">
-          <div className="grid col-span-3">
+        <div className="containerMoney pt-10">
+          <div className="containerEquivalence">
             <EquivalenceMoney buy={buyDolar} sale={saleDolar} />
           </div>
-          <div className="grid col-span-2">
+          <div className="containeDetected">
             <Title type="h2" text="Detecta billetes falsos »" />
             <Money />
           </div>
         </div>
       </div>
+      <div className="h-64 mt-10 bg-lightGray w-full justify-center align-items-center"></div>
       <BasicInformation />
       <Questions />
       <Footer />

@@ -87,30 +87,7 @@ const Converter = (props) => {
         );
   };
   return (
-    // <div className="bg-secondary w-96 h-52 rounded-lg">
-    //   <div className="flex p-5">
-    //     <div className="flex w-32 text-white">
-    //       <span className="text-sm">TENGO DÓLARES</span>
-    //       <span className="text-4xl">$</span>
-    //     </div>
-    //     <div className="bg-primary rounded-full border-2 w-10 h-10 flex align-middle p-1.5 mx-8 shadow-md shadow-black">
-    //       <img src="icons/change.svg" />
-    //     </div>
-    //     <div className="flex w-32 text-white">
-    //       <span className="text-sm">QUIERO SOLES</span>
-    //       <span className="text-4xl">S/</span>
-    //     </div>
-    //   </div>
-    //   <div className="m-auto mx-6">
-    //     <input className="w-full py-2 px-2" />
-    //   </div>
-    //   <div className="flex justify-center mt-4">
-    //     <button className="bg-lgreen text-white p-2 px-4 rounded-3xl shadow-sm shadow-black">
-    //         Convertir
-    //     </button>
-    //   </div>
-    // </div>
-    <div className="relative containerConverter">
+    <div className="relative containerConverter ">
       <div className="flex space-x-2">
         <div className="flex bg-third px-2 rounded-t-lg shadowPromote">
           <img src="/icons/promote.svg" />

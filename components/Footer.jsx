@@ -5,18 +5,20 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import EmailIcon from "@mui/icons-material/Email";
 function Footer() {
   return (
     <>
-      <div className="bg-third  p-5 bg-primary h-1/2 w-full flex md:flex-row flex-col justify-between items-start sm:px-[185px] text-white">
-        <div>
-          <p>Enterate sobre el cambio del dolar</p>
+      <div className="bg-[#884485] items-center p-5 bg-primary h-1/2 w-full flex md:flex-row flex-col justify-between md:justify-around items-start sm:px-[185px] text-white">
+        <div className="flex justify-between">
+          <EmailIcon />
+          <p className="pl-5">Enterate sobre el cambio del dolar</p>
         </div>
-        <div>
+        <div className="bg-lgreen w-[140px] h-9 text-white text-center align-middle mt-1 pt-1 rounded-3xl shadow-sm shadow-black">
           <p>Suscribirme</p>
         </div>
       </div>
-      <div className="grid grid-cols-4 bg-gradient-to-r from-third to-bluefooter  p-5 bg-primary h-1/2 w-full flex md:flex-row flex-col justify-around items-start sm:px-[171px] sm:py-20 text-white">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 bg-gradient-to-r from-third to-bluefooter  p-5 bg-primary h-1/2 w-full flex md:flex-row flex-col justify-around items-start sm:px-[171px] sm:py-20 text-white">
         <div className="p-1">
           <ul>
             <p className="text font-bold text-lg pb-4">Secciones</p>

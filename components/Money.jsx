@@ -62,6 +62,7 @@ const Money = () => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          className="m-[2px]"
         >
           <Typography sx={{ marginTop: "0px", marginBottom: "0px" }}>
             DÓLARES

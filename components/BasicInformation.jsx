@@ -1,9 +1,21 @@
 import React from "react";
 import Title from "../components/Title";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 const BasicInformation = () => {
   return (
     <>
+      <div className="flex justify-center pt-10">
+        <Image
+          height="89"
+          width="200"
+          className="h-12 my-auto cursor-pointer"
+          src="/icons/logo.svg"
+          alt="Logo de cuánto está el dólar"
+          onClick={() => router.push("/")}
+        />
+      </div>
       <div className="pt-4">
         <Title type="h1" align="center" text="cuantoestaeldolar.pe" />
       </div>
@@ -11,7 +23,7 @@ const BasicInformation = () => {
         Somos una plataforma que tiene como propósito democratizar el precio del
         dólar en el Perú, su información es actualizada a diario.
       </p>
-      <div className="container mx-auto px-4 grid grid-cols-2 gap-4">
+      <div className="container mx-auto px-4 grid lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-4">
         <div className="flex box-border border-4 border-amber-400 rounded-lg">
           <img src="img/compra.png" width={140} height={158} />
           <div className="p-6 flex-2 align-middle">
@@ -35,7 +47,7 @@ const BasicInformation = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto pt-6 pb-2 px-8 grid grid-cols-2 gap-4">
+      <div className="container mx-auto pt-6 pb-2 px-8 grid lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-4">
         <div className="flex">
           <div className="p-6 flex-2 align-middle">
             <div className="pt-8">
