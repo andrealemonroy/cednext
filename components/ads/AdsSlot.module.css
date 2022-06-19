@@ -1,0 +1,12 @@
+.skin{
+  height: 1000px;
+  width: 1600px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -800px;
+  background: #fff;
+}
+.simple{
+  display: flex;
+}

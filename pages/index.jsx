@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import CasasCambio from "../components/CasasCambio/CasasCambio";
 import { Layout } from "../components/Layout";
 import AdsSlot from "../components/ads/AdsSlot";
-import { defineSlot } from "../framework/lib";
+
 
 
 export default function Home({
@@ -29,6 +29,7 @@ export default function Home({
 
   const [onlineExchange, setOnlineExchange] = useState();
   const [exchangeRate, setExchangeRate] = useState(exchangeSunat);
+
   const exportAsPicture = () => {
     var html = document.getElementsByTagName("HTML")[0];
     var body = document.getElementsByTagName("BODY")[0];
@@ -90,21 +91,13 @@ export default function Home({
           return obj;
         }));
     setOnlineExchange(update);
-    // values.currencySent === "PEN" ? setOnlineExchange(preExchange  => preExchange.map(item => ({...item, cost: cost *values.firstValue}))) : setOnlineExchange(preExchange  => preExchange.map(item => ({...item, cost: cost /values.firstValue})))
-    // console.log(onlineExchange)
-    // onlineExchangeHouses.map(item => {
-    //   // console.log(item)
-    //   item.rates[0].buy.cost = item.rates[0].buy.cost * values.firstValue
-    //   // return (
-    //   //   setitem.rates[0].buy * values.firstValue
-    //   // )
-    // })
   };
   const back = () => {
     fetchOnlineHouses().then((res) => {
       setOnlineExchange(res.data);
     });
   };
+
   const fetchOnlineHouses = async () => {
     const response = await fetch(
       `https://api2.cuantoestaeldolar.pe/exchangehouses`
@@ -121,10 +114,6 @@ export default function Home({
     // });
   }, []);
 
-  useEffect(() => {
-    defineSlot(embi);
-  }, []);
-
   return (
     <div>
       <Menu menu={menu} onlineExchangeHouses={onlineExchangeHouses} />
@@ -132,10 +121,7 @@ export default function Home({
         <div className="w-full">
           <Title type="h1" text="Precio del dólar hoy en Perú" />
           <div>
-            <Title
-              type="h3"
-              text="Actualizado | Dólares a soles/soles a dólares"
-            />
+            <Title type="h3" text="Actualizado | Dólares a soles/soles a dólares"/>
           </div>
         </div>
         <div id="converter" className="sm:flex justify-between mt-5">
@@ -143,10 +129,7 @@ export default function Home({
             <div className="flex sm:w-[500px]">
               <div className="w-[200px] flex">
                 <Title type="h2" text="Cotización" />
-                <button
-                  onClick={exportAsPicture}
-                  className="bg-lgreen ml-2 w-[140px] h-9 text-white px-4 rounded-3xl shadow-sm shadow-black"
-                >
+                <button className="bg-lgreen ml-2 w-[140px] h-9 text-white px-4 rounded-3xl shadow-sm shadow-black" onClick={exportAsPicture} >
                   Compartir
                 </button>
               </div>
@@ -215,7 +198,7 @@ export default function Home({
         <ListOnlineExchange onlineExchangeHouses={onlineExchange} />
         <hr/>
         <CasasCambio onlineExchangeHouses={onlineExchangeHouses}/>
-        {/* <AdsSlot slodId={ embi } /> */}
+        <AdsSlot slodId={ embi } />
         <div className="w-full mt-10">
           <div className="text-center">
             <Title type="h7" text="Cambio Interbancario »" />
@@ -288,8 +271,8 @@ export default function Home({
             </div>
           </div>
         </div>
-        <AdsSlot slodId={embi} />
         <Blog blogData={posts} />
+        <AdsSlot slodId={dF728x90} />
       </div>
 
       <Footer />
@@ -306,7 +289,6 @@ export const getStaticProps = async () => {
   const { data: exchangeBanks } = await api.getExchange("interbank");
   const { data: posts } = await api.getPosts();
   const { data: ads } = await api.publicidad();
-  // console.log(ads)
   return {
     props: {
       menu,
