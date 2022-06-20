@@ -6,7 +6,7 @@ const Blog = ({ blogData }) => {
       {blogData?.map((item, index) => (
         <div
           key={index}
-          className="max-w-sm rounded overflow-hidden shadow-lg mx-2 my-2"
+          className="rounded overflow-hidden shadow-lg mx-2 my-2"
         >
           <img
             className="w-full"

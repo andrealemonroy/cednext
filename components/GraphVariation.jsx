@@ -36,7 +36,7 @@ const GraphVariation = ({ dataBuy }) => {
     });
   };
   buyDolar();
-
+  const _dateSpanish = dateSpanish(Date.now());
   return (
     <div>
       <div className="bg-white p-6"></div>
@@ -61,7 +61,7 @@ const GraphVariation = ({ dataBuy }) => {
               Compartir
             </button>
           </div>
-          <Title type="h3" text={dateSpanish} align="right" />
+          <Title type="h3" text={_dateSpanish} align="right" />
         </div>
       </div>
       <div className="containerGraph pt-8">

@@ -10,7 +10,7 @@ const HomeChangeDetails = ({ datos }) => {
         <p className="pb-5">Nombre : {datos.nombre}</p>
         <MapView datos={datos} />
       </div>
-      <div className="bg-gray-100 text-cyan-800 border-x-2 rounded-md">
+      <div className="border-gray text-cyan-800 border-x-2 rounded-md">
         <p>Dirección : {datos.direccion}</p>
         <p>referencia = {datos.referencia}</p>
         <p>correo = {datos.correo}</p>

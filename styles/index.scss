@@ -204,9 +204,24 @@
   grid-column: span 2;
 }
 
+.containerInitial {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.containerHome {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.homeChangeList {
+  padding: 10px;
+}
+
 @media (max-width: 1000px) {
   .containerConverter {
-    margin-top: 40px;
     margin-bottom: 10px;
     width: 100%;
   }
@@ -224,13 +239,22 @@
     grid-column: span 1;
   }
 
-
 }
 
 
 @media (max-width: 880px) {
   .containerMoney {
     grid-template-columns: repeat(1, auto);
+  }
+
+  .containerInitial {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .containerConverter {
+    margin-top: 30px;
+    width: 400px;
+    justify-content: center;
   }
 
   .borderEquivalencia {
@@ -243,6 +267,10 @@
 
   .containerDetected {
     grid-column: span 1;
+  }
+
+  .containerHome {
+    grid-template-columns: repeat(1, 1fr);
   }
 
 }

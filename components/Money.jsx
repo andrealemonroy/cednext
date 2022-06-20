@@ -70,7 +70,7 @@ const Money = () => {
         </AccordionSummary>
         <AccordionDetails>
           {monedas.dolares.map((billete) => (
-            <li className="content font-body font-normal" key={1}>
+            <li className="content font-body font-normal" key={billete.link}>
               <a href={billete.link} className="font-body font-normal">
                 {billete.denominacion}
               </a>
@@ -95,7 +95,7 @@ const Money = () => {
         </AccordionSummary>
         <AccordionDetails>
           {monedas.soles.map((billete) => (
-            <li className="content font-body font-normal" key={1}>
+            <li className="content font-body font-normal" key={billete.link}>
               <a href={billete.link} className="font-body font-normal">
                 {billete.denominacion}
               </a>

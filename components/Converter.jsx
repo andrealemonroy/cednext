@@ -87,7 +87,7 @@ const Converter = (props) => {
         );
   };
   return (
-    <div className="relative containerConverter ">
+    <div className="relative containerConverter w-full">
       <div className="flex space-x-2">
         <div className="flex bg-third px-2 rounded-t-lg shadowPromote">
           <img src="/icons/promote.svg" />

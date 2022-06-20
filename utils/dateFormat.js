@@ -1,4 +1,4 @@
-const dateSpanish = () => {
+const dateSpanish = (date) => {
   const meses = [
     "enero",
     "febrero",
@@ -22,7 +22,7 @@ const dateSpanish = () => {
     "Viernes",
     "Sábado",
   ];
-  const tiempoTranscurrido = Date.now();
+  const tiempoTranscurrido = date;
   const hoy = new Date(tiempoTranscurrido);
   const fecha =
     dias_semana[hoy.getDay()] +

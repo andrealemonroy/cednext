@@ -73,14 +73,6 @@ const ExchangeHouses = ({
   const [homeChange, setHomeChange] = useState(false);
   const [inicio, setInicio] = useState(true);
 
-  /* useEffect(() => {
-    refresh();
-    async function refresh() {
-      const { data } = await api.getHomeChange(casaCambio);
-      setHomeChange(data); //[] true
-    }
-  }, [casaCambio]); */
-
   useEffect(() => {
     refresh();
     async function refresh() {
@@ -149,10 +141,10 @@ const ExchangeHouses = ({
         <div className="w-[100%] align-middle col-span-1 ">
           <Title type="h6" text="Cambio de monedas en Perú" />
         </div>
-        <div className="container lg:flex gap-4 px-2 sm:grid col-span-4">
+        <div className="container lg:flex md:flex gap-4 px-2 sm:grid col-span-4">
           <select
             id="departaments"
-            className="w-[300px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="w-[300px] border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleDepartamento}
           >
             <option className="bg-slate-200" value={-1}>
@@ -171,7 +163,7 @@ const ExchangeHouses = ({
           </select>
           <select
             id="provinces"
-            className="bg-slate-200 w-[300px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="w-[300px]  border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleProvincia}
           >
             <option value={-1}>Seleccione provincia</option>
@@ -188,7 +180,7 @@ const ExchangeHouses = ({
           </select>
           <select
             id="districts"
-            className="bg-slate-200 w-[300px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="w-[300px] border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleDistrito}
           >
             <option value={-1} name={"No seleccionado"}>
@@ -224,7 +216,7 @@ const ExchangeHouses = ({
             Casas de cambio de {nombreDistrito}
           </h1>
         )}
-        <div className="containerHome pt-10 col-2">
+        <div className="containerHome pt-4">
           <div className="homeChangeList">
             {casaCambio === null &&
               casasCambio &&
@@ -232,13 +224,12 @@ const ExchangeHouses = ({
                 <ul key={casas.url}>
                   <div
                     key={casas.url}
-                    className="bg-slate-100 rounded-lg drop-shadow-md border-2 p-8"
+                    className="bg-slate-100  rounded-lg drop-shadow-md border-2 p-8  border-gray"
                     onClick={() => onHandleCasa(casas.url)}
                   >
                     <a
                       className="no-underline hover:underline"
                       type={casas.url}
-                      href={"#|" + casas.url}
                       rel={casas.url}
                     >
                       <h1 className="text-3xl text-[#0096A6] font-black">

@@ -31,12 +31,11 @@ export default function Home({
   exchangeBanks,
 }) {
   menu[0].path = "exchangeHouses";
-  menu[1].path = "exchangeHouses";
+  menu[1].path = "/";
   menu[2].path = "variationDolar";
-  menu[3].path = "validateMoney";
   // menu[3].path = 'calculatorMoney';
   menu[4].path = "newsChange";
-  menu[5].path = "brandDesign";
+  // menu[5].path = "services";
 
   const [onlineExchange, setOnlineExchange] = useState();
   const [exchangeRate, setExchangeRate] = useState(exchangeSunat);
@@ -121,8 +120,6 @@ export default function Home({
     });
   }, []);
 
-  console.log(exchangeSunat);
-
   const buyDolar = exchangeSunat.buy.cost;
   const saleDolar = exchangeSunat.sale.cost;
 
@@ -150,9 +147,10 @@ export default function Home({
             />
           </div>
         </div>
-        {/* <div className="grid justify-between grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 "> */}
-        <div id="converter" className="sm:flex justify-between mt-5 w-full">
-          <div className="sm:mb-16">
+        {/* <div id="converter" className="sm:flex justify-between mt-5 w-full"> */}
+        {/* <div className="grid grid-cols-2"> */}
+        <div className="containerInitial">
+          <div>
             <Quotation
               exportAsPicture={exportAsPicture}
               exchangeSunat={exchangeSunat}

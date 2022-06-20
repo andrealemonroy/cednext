@@ -6,9 +6,9 @@ const CardItem = (name, image = "") => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <div className="rounded overflow-hidden shadow-lg">
       <Image
-        className="w-full"
+        className="w-full border-gray"
         src="/img/cusco.jpg"
         alt={name}
         width={140}
