@@ -31,7 +31,6 @@ export default function Home({
   exchangeBanks,
 }) {
   menu[0].path = "exchangeHouses";
-  //menu[1].path = "prueba";
   menu[1].path = "exchangeHouses";
   menu[2].path = "variationDolar";
   menu[3].path = "validateMoney";
@@ -152,7 +151,7 @@ export default function Home({
           </div>
         </div>
         {/* <div className="grid justify-between grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 "> */}
-        <div id="converter" className="sm:flex justify-between mt-5">
+        <div id="converter" className="sm:flex justify-between mt-5 w-full">
           <div className="sm:mb-16">
             <Quotation
               exportAsPicture={exportAsPicture}
@@ -255,7 +254,7 @@ export default function Home({
           <div className="containerEquivalence">
             <EquivalenceMoney buy={buyDolar} sale={saleDolar} />
           </div>
-          <div className="containeDetected">
+          <div className="containerDetected">
             <Title type="h2" text="Detecta billetes falsos »" />
             <Money />
           </div>

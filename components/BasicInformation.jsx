@@ -24,7 +24,7 @@ const BasicInformation = () => {
         dólar en el Perú, su información es actualizada a diario.
       </p>
       <div className="container mx-auto px-4 grid lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-4">
-        <div className="flex box-border border-4 border-amber-400 rounded-lg">
+        <div className="flex box-border border-4 border-gray rounded-lg">
           <img src="img/compra.png" width={140} height={158} />
           <div className="p-6 flex-2 align-middle">
             <div className="pt-2">
@@ -35,7 +35,7 @@ const BasicInformation = () => {
             </div>
           </div>
         </div>
-        <div className="flex box-border border-4 rounded-lg">
+        <div className="flex box-border border-4 border-gray rounded-lg">
           <img src="img/venta.png" width={105.27} />
           <div className="p-6 flex-2 align-middle">
             <div className="pt-2">

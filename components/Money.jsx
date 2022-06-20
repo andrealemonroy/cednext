@@ -51,7 +51,7 @@ const Money = () => {
     ],
   };
   return (
-    <div>
+    <div className="mt-2">
       <Accordion
         sx={{ marginTop: "0px", marginBottom: "0px" }}
         expanded={expanded.dolares}
@@ -62,7 +62,7 @@ const Money = () => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
-          className="m-[2px]"
+          className="m-[2px] font-body"
         >
           <Typography sx={{ marginTop: "0px", marginBottom: "0px" }}>
             DÓLARES
@@ -71,7 +71,9 @@ const Money = () => {
         <AccordionDetails>
           {monedas.dolares.map((billete) => (
             <li className="content font-body font-normal" key={1}>
-              <a href={billete.link}>{billete.denominacion}</a>
+              <a href={billete.link} className="font-body font-normal">
+                {billete.denominacion}
+              </a>
             </li>
           ))}
         </AccordionDetails>
@@ -94,7 +96,9 @@ const Money = () => {
         <AccordionDetails>
           {monedas.soles.map((billete) => (
             <li className="content font-body font-normal" key={1}>
-              <a href={billete.link}>{billete.denominacion}</a>
+              <a href={billete.link} className="font-body font-normal">
+                {billete.denominacion}
+              </a>
             </li>
           ))}
         </AccordionDetails>

@@ -15,7 +15,7 @@ function Questions() {
         />
         <div
           className="
-            bg-gray-200
+            bg-gray
             h-14  
             pt-3 pl-4
             flex-items-center
