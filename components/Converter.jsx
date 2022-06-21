@@ -71,7 +71,6 @@ const Converter = (props) => {
       </div>
     );
   const change = () => {
-    debugger;
     setCurrencySent(currencyReceived);
     setCurrencyReceived(currencySent);
     firstValue != 0 && currencySent == "PEN"

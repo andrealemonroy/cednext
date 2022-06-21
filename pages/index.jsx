@@ -82,22 +82,31 @@ export default function Home({
   };
   const exchange = (values) => {
     // setOnlineExchange()
+    console.log(values);
     let update;
     values.currencySent === "PEN"
       ? (update = onlineExchangeHouses.map((item) => {
-          let obj = { ...item };
-          obj.rates[1].sale.cost = parseFloat(
-            parseFloat(values.firstValue).toFixed(3) /
-              parseFloat(obj.rates[1].sale.cost).toFixed(3)
-          ).toFixed(3);
+          //let obj = { ...item };
+          let obj = JSON.parse(JSON.stringify(item));
+
+          if (obj.rates[1].sale.cost != 0) {
+            obj.rates[1].sale.cost = parseFloat(
+              parseFloat(values.firstValue).toFixed(3) /
+                parseFloat(obj.rates[1].sale.cost).toFixed(3)
+            ).toFixed(3);
+          }
           return obj;
         }))
       : (update = onlineExchangeHouses.map((item) => {
-          let obj = { ...item };
-          obj.rates[0].buy.cost = parseFloat(
-            parseFloat(values.firstValue).toFixed(3) *
-              parseFloat(obj.rates[0].buy.cost).toFixed(3)
-          ).toFixed(3);
+          //let obj = { ...item };
+          let obj = JSON.parse(JSON.stringify(item));
+
+          if (obj.rates[0].buy.cost != 0) {
+            obj.rates[0].buy.cost = parseFloat(
+              parseFloat(values.firstValue).toFixed(3) *
+                parseFloat(obj.rates[0].buy.cost).toFixed(3)
+            ).toFixed(3);
+          }
           return obj;
         }));
     setOnlineExchange(update);
@@ -149,8 +158,6 @@ export default function Home({
             />
           </div>
         </div>
-        {/* <div id="converter" className="sm:flex justify-between mt-5 w-full"> */}
-        {/* <div className="grid grid-cols-2"> */}
         <div className="containerInitial">
           <div>
             <Quotation
