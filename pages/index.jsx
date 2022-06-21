@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import CasasCambio from "../components/CasasCambio/CasasCambio";
 import { Layout } from "../components/Layout";
 import AdsSlot from "../components/ads/AdsSlot";
+import Equivalencias from "../components/Equivalencias/Equivalencias";
+import Ced from "../components/Ced/ced";
 
 import GraphVariation from "../components/GraphVariation";
 import Money from "../components/Money";
@@ -35,6 +37,7 @@ export default function Home({
   console.log(menu)
   const { div_id:embi } = ads.find(item=>item.name === 'd_embi_ced_39');
   const { div_id:dF728x90 } = ads.find(item=>item.name === 'dF728x90');
+  const { div_id:dF300x250 } = ads.find(item=>item.name === 'dF300x250');
 
   const [onlineExchange, setOnlineExchange] = useState();
   const [exchangeRate, setExchangeRate] = useState(exchangeSunat);
@@ -299,6 +302,12 @@ export default function Home({
           </div>
         </div>
         <AdsSlot slodId={dF728x90} />
+        <Blog blogData={posts} />
+        <br />
+        <AdsSlot slodId={dF300x250} />
+        <br />
+        <Equivalencias/>
+        <Ced />
       </div>
 
       <Footer />

@@ -1,0 +1,75 @@
+.table_usa_pen{
+  @apply table w-full;
+  width: 100%;
+  color: black;
+}
+.mt_32{
+  margin-top: 42px !important;
+}
+.signo_span{
+  @apply inline-block;
+}
+.table_signo{
+  @apply w-1/4 text-center align-middle table-cell;
+}
+.table_values{
+  @apply w-2/4 text-center align-middle table-cell;
+}
+.tdr{
+  @apply text-right pr-[10px] w-2/5 table-cell;
+}
+.tdl{
+  @apply text-left pl-[10px] w-2/5 table-cell;
+}
+.title_eq{
+  @apply text-2xl font-bold;
+  /* font-family: 'Roboto'; */
+}
+.border{
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 15px 0px;
+  margin: 10px;
+  text-align: center;
+  color: #666;
+}
+.panel_body{
+
+}
+.card_header, .link_panel{
+  margin: 2px 0px;
+}
+.card_header a span{
+  @apply absolute;
+  right: 15px;
+  top: 15px;
+}
+.link_panel a{
+  @apply block;
+  background: #009688;
+  border: 1px solid #009688;
+  padding: 1px 10px;
+  font-size: 16px;
+  color: #fff;
+  position: relative;
+  border-radius: 10px;
+}
+.card_header a{
+  @apply block;
+  background: #F9F9F9;
+  border: 1px solid #cfcccf;
+  padding: 1px 10px;
+  font-size: 16px;
+  color: #0096A6;
+  position: relative;
+  border-radius: 10px;
+}
+.cardm{
+  margin-top: 25px;
+}
+
+@media (min-width: 980px) {
+  .gridtable{
+    @apply grid grid-cols-3;
+  }
+}
