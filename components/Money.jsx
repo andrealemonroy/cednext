@@ -1,9 +1,4 @@
 import React, { useState } from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const Money = () => {
   const [expanded, SetExpanded] = useState({
@@ -50,9 +45,12 @@ const Money = () => {
       },
     ],
   };
-  return (
-    <div className="mt-2">
-      <Accordion
+  return <div></div>;
+};
+
+export default Money;
+
+/* <Accordion
         sx={{ marginTop: "0px", marginBottom: "0px" }}
         expanded={expanded.dolares}
         onClick={() => handleChange("dolares")}
@@ -62,7 +60,7 @@ const Money = () => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
-          className="m-[2px] font-body"
+          classNameName="m-[2px] font-body"
         >
           <Typography sx={{ marginTop: "0px", marginBottom: "0px" }}>
             DÓLARES
@@ -70,8 +68,8 @@ const Money = () => {
         </AccordionSummary>
         <AccordionDetails>
           {monedas.dolares.map((billete) => (
-            <li className="content font-body font-normal" key={billete.link}>
-              <a href={billete.link} className="font-body font-normal">
+            <li classNameName="content font-body font-normal" key={billete.link}>
+              <a href={billete.link} classNameName="font-body font-normal">
                 {billete.denominacion}
               </a>
             </li>
@@ -95,16 +93,11 @@ const Money = () => {
         </AccordionSummary>
         <AccordionDetails>
           {monedas.soles.map((billete) => (
-            <li className="content font-body font-normal" key={billete.link}>
-              <a href={billete.link} className="font-body font-normal">
+            <li classNameName="content font-body font-normal" key={billete.link}>
+              <a href={billete.link} classNameName="font-body font-normal">
                 {billete.denominacion}
               </a>
             </li>
           ))}
         </AccordionDetails>
-      </Accordion>
-    </div>
-  );
-};
-
-export default Money;
+      </Accordion> */

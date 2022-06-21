@@ -19,6 +19,7 @@ import BasicInformation from "../components/BasicInformation";
 import Questions from "../components/Questions";
 import EquivalenceMoney from "../components/EquivalenceMoney";
 import Quotation from "../components/Quotation";
+
 export default function Home({
   dataBuy,
   menu,
@@ -130,6 +131,7 @@ export default function Home({
           Tipo de Cambio | Dólares a Soles | Precio del dólar en el Perú |
           compra y venta de dólares en Perú | Cuánto esta el dolar en el Perú
         </title>
+
         <meta
           name="description"
           content="Tipo de cambio, precio del dólar en soles para hoy - cotización del dolar en el Perú  - SUNAT - SBS y paralelo - Cambios Online - Cambiar dólares a soles"

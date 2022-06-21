@@ -5,13 +5,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import EmailIcon from "@mui/icons-material/Email";
+
 function Footer() {
   return (
     <>
       <div className="bg-[#884485] items-center p-5 bg-primary h-1/2 w-full flex md:flex-row flex-col justify-between md:justify-around items-start sm:px-[185px] text-white">
         <div className="flex justify-between">
-          <EmailIcon />
           <p className="pl-5">Enterate sobre el cambio del dolar</p>
         </div>
         <div className="bg-lgreen w-[140px] h-9 text-white text-center align-middle mt-1 pt-1 rounded-3xl shadow-sm shadow-black">
