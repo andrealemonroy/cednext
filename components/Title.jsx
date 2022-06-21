@@ -1,6 +1,6 @@
 import React from "react";
 
-const Title = ({ type, text, align }) => {
+const Title = ({ type, text, align, color, weight, font }) => {
   return (
     <>
       {type === "h1" ? (
@@ -12,7 +12,13 @@ const Title = ({ type, text, align }) => {
       ) : type === "h3" ? (
         <h3 className={`text-base text-lightGray text-${align}`}>{text}</h3>
       ) : type === "h4" ? (
-        <h4 className={`text-[18px] text-lightGray text-${align}`}>{text}</h4>
+        <h4
+          className={`text-[18px] font-body text-${align} ${
+            color ? `text-${color}` : `text-lightGray`
+          }`}
+        >
+          {text}
+        </h4>
       ) : type === "h5" ? (
         <h5 className={`text-2xl text-${align}`}>{text}</h5>
       ) : type === "h6" ? (

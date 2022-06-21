@@ -249,8 +249,8 @@ export default function Home({
         <GraphVariation dataBuy={dataBuy} />
         <div className="h-24 bg-lightGray w-full justify-center align-items-center"></div>
         <Blog blogData={posts} className="justify-center" />
-        <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
-        <div className="containerMoney pt-10">
+        <div className="h-64 mb-[49px] bg-lightGray w-full justify-center align-items-center"></div>
+        <div className="containerMoney">
           <div className="containerEquivalence">
             <EquivalenceMoney buy={buyDolar} sale={saleDolar} />
           </div>
