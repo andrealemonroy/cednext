@@ -1,43 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
+}
 
-// .wrapper {
-//   width: calc(100% - 50px);
-//   margin: auto;
-//   overflow-x: hidden;
-//   left: 50px;
-// }
+.acordion {
+  width: 50vh;
+}
 
-// .wrapper-2 {
-//   width: calc(100% - 50px);
-//   margin: auto;
-//   overflow-x: hidden;
-//   left: 100px;
-// }
+.item {
+  margin-bottom: 5px;
+  padding: 10px 20px;
+}
 
-// .target {
-//   font-weight: bold;
-//   animation-name: rightToLeft;
-//   animation-duration: 20s;
-//   animation-timing-function: linear;
-//   animation-iteration-count: infinite;
-//   /* animation: rightToLeft 4.5s linear infinite; */
-// }
-// .target-2 {
-//   font-weight: bold;
-//   animation-name: rightToLeft2;
-//   animation-duration: 20s;
-//   animation-delay: 20s;
-//   animation-timing-function: linear;
-//   animation-iteration-count: infinite;
-//   /* animation: rightToLeft 4.5s linear infinite; */
-// }
+.title {
+  color: #81397e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  background-color: #009688;
+  color: #FFFFFF;
+  list-style: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  border-radius: 5px;
+  margin: 2px;
+  height: 34px;
+  padding-left: 16px;
+}
+
+.content:hover {
+  background-color: #03665c;
+}
+
+.borderEquivalencia {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 98%;
+  height: 447px;
+
+}
 
 @keyframes rightToLeft {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -47,12 +69,13 @@
   0% {
     transform: translateX(0%);
   }
+
   90% {
     transform: translateX(-100%);
   }
 }
 
-.titleDesign{
+.titleDesign {
   position: absolute;
   left: 57%;
   right: 0.29%;
@@ -60,17 +83,17 @@
   bottom: 0.5%;
   width: 342px;
 
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 34px;
-line-height: 40px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 40px;
 
-color: #FFFFFF;
+  color: #FFFFFF;
 
 }
 
-.titleBrand{
+.titleBrand {
   position: absolute;
   left: 24%;
   right: -229.34%;
@@ -89,9 +112,10 @@ color: #FFFFFF;
   color: #FFFFFF;
 }
 
-.gradient{
+.gradient {
   background: linear-gradient(67.6deg, #FFDF4C 6.79%, #0096A6 67.73%);
 }
+
 .nav-data {
   display: flex;
   margin-top: 10px;
@@ -149,11 +173,110 @@ color: #FFFFFF;
   padding-bottom: 15px;
 }
 
-.containerConverter{
+.containerConverter {
   top: -40px
 }
 
-.leaflet-container{
-  width: 30vw;
+.leaflet-container {
+  width: 100%;
   height: 40vh;
+}
+
+.backgroundMoney {
+  background-color: #0096A6;
+  color: #FFFFFF;
+  font-size: xx-large;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.containerMoney {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.containerEquivalence {
+  grid-column: span 3;
+  justify-content: center;
+}
+
+.containerDetected {
+  grid-column: span 2;
+}
+
+.containerInitial {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.containerHome {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.homeChangeList {
+  padding: 10px;
+}
+
+@media (max-width: 1000px) {
+  .containerConverter {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .containerMoney {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .containerEquivalence {
+    grid-column: span 2;
+    margin-bottom: 15px;
+  }
+
+  .containerDetected {
+    grid-column: span 1;
+  }
+
+}
+
+
+@media (max-width: 880px) {
+  .containerMoney {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .containerInitial {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .containerConverter {
+    margin-top: 30px;
+    width: 400px;
+    justify-content: center;
+  }
+
+  .borderEquivalencia {
+    margin-bottom: 20px;
+  }
+
+  .containerEquivalence {
+    grid-column: span 1;
+  }
+
+  .containerDetected {
+    grid-column: span 1;
+  }
+
+  .containerHome {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+}
+
+.MuiAccordionSummary-root {
+  margin: 0px;
 }

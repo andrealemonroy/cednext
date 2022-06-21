@@ -11,9 +11,18 @@ import CasasCambio from "../components/CasasCambio/CasasCambio";
 import { Layout } from "../components/Layout";
 import AdsSlot from "../components/ads/AdsSlot";
 
+import GraphVariation from "../components/GraphVariation";
+import Money from "../components/Money";
+import BasicInformation from "../components/BasicInformation";
+import Questions from "../components/Questions";
+import EquivalenceMoney from "../components/EquivalenceMoney";
+import Quotation from "../components/Quotation";
+
+import brandDesign from "./brandDesign";
 
 
 export default function Home({
+  dataBuy,
   menu,
   onlineExchangeHouses,
   exchangeDolar,
@@ -23,12 +32,15 @@ export default function Home({
   exchangeBanks,
   ads,
 }) {
-
+  console.log(menu)
   const { div_id:embi } = ads.find(item=>item.name === 'd_embi_ced_39');
   const { div_id:dF728x90 } = ads.find(item=>item.name === 'dF728x90');
 
   const [onlineExchange, setOnlineExchange] = useState();
   const [exchangeRate, setExchangeRate] = useState(exchangeSunat);
+
+  const buyDolar = exchangeSunat.buy.cost;
+  const saleDolar = exchangeSunat.sale.cost;
 
   const exportAsPicture = () => {
     var html = document.getElementsByTagName("HTML")[0];
@@ -195,14 +207,15 @@ export default function Home({
           </div>
           <Converter click={exchange} exchangeRate={exchangeRate} back={back} />
         </div>
-        <ListOnlineExchange onlineExchangeHouses={onlineExchange} />
-        <hr/>
         <CasasCambio onlineExchangeHouses={onlineExchangeHouses}/>
         <AdsSlot slodId={ embi } />
+        <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
         <div className="w-full mt-10">
           <div className="text-center">
             <Title type="h7" text="Cambio Interbancario »" />
-            <p className="mt-2">Despliega para ver horarios del mercado bancario</p>
+            <p className="mt-2">
+              Despliega para ver horarios del mercado bancario
+            </p>
             <button
               onClick={exportAsPicture}
               className="mt-2 bg-lgreen w-[140px] h-9 text-white px-4 rounded-3xl shadow-sm shadow-black"
@@ -271,7 +284,20 @@ export default function Home({
             </div>
           </div>
         </div>
-        <Blog blogData={posts} />
+        <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
+        <GraphVariation dataBuy={dataBuy[0].price} />
+        <div className="h-24 bg-lightGray w-full justify-center align-items-center"></div>
+        <Blog blogData={posts} className="justify-center" />
+        <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
+        <div className="containerMoney pt-10">
+          <div className="containerEquivalence">
+            <EquivalenceMoney buy={buyDolar} sale={saleDolar} />
+          </div>
+          <div className="containerDetected">
+            <Title type="h2" text="Detecta billetes falsos »" />
+            <Money />
+          </div>
+        </div>
         <AdsSlot slodId={dF728x90} />
       </div>
 
@@ -289,6 +315,7 @@ export const getStaticProps = async () => {
   const { data: exchangeBanks } = await api.getExchange("interbank");
   const { data: posts } = await api.getPosts();
   const { data: ads } = await api.publicidad();
+  const { data: dataBuy } = await api.getBuy();
   return {
     props: {
       menu,
@@ -298,7 +325,8 @@ export const getStaticProps = async () => {
       exchangeEuro,
       posts,
       exchangeBanks,
-      ads
+      ads,
+      dataBuy,
     },
   };
 };

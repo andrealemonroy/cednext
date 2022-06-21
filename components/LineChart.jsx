@@ -31,7 +31,7 @@ const options = {
     response : true,
     scales : {
         x: {
-            min:0
+            display: false,
         }
     },
 }
