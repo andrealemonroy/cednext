@@ -1,4 +1,4 @@
-import { ManagedUIContext } from "../components/contex";
+import { ManagedUIContext } from "../components/Contex";
 import "../styles/index.scss";
 
 const Noop = ({ children }) => <>{children}</>

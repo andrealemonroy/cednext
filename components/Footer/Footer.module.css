@@ -1,0 +1,4 @@
+.bg_footer{
+  @apply p-5 h-1/2 w-full flex md:flex-row flex-col justify-around items-start sm:p-20;
+  background: linear-gradient(45deg, rgba(136,68,133,1) 0%, rgba(6,123,135,1) 100%);
+}

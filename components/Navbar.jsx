@@ -12,7 +12,7 @@ const Navbar = () => {
     } else {
       setScrolled(false);
     }
-    console.log(window.pageYOffset);
+    // console.log(window.pageYOffset);
   };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);

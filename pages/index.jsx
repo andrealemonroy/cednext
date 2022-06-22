@@ -1,8 +1,7 @@
 import api from "@framework/api";
 import Blog from "../components/Blog";
 import Converter from "../components/Converter";
-import Footer from "../components/Footer";
-import ListOnlineExchange from "../components/ListOnlineExchange";
+import Footer from "../components/Footer/Footer";
 import Menu from "../components/Navbar/Menu";
 import Title from "../components/Title";
 import html2canvas from "html2canvas";
@@ -15,12 +14,7 @@ import Ced from "../components/Ced/ced";
 
 import GraphVariation from "../components/GraphVariation";
 import Money from "../components/Money";
-import BasicInformation from "../components/BasicInformation";
-import Questions from "../components/Questions";
 import EquivalenceMoney from "../components/EquivalenceMoney";
-import Quotation from "../components/Quotation";
-
-import brandDesign from "./brandDesign";
 
 
 export default function Home({
@@ -34,7 +28,7 @@ export default function Home({
   exchangeBanks,
   ads,
 }) {
-  console.log(menu)
+  // console.log(menu)
   const { div_id:embi } = ads.find(item=>item.name === 'd_embi_ced_39');
   const { div_id:dF728x90 } = ads.find(item=>item.name === 'dF728x90');
   const { div_id:dF300x250 } = ads.find(item=>item.name === 'dF300x250');
@@ -212,7 +206,6 @@ export default function Home({
         </div>
         <CasasCambio onlineExchangeHouses={onlineExchangeHouses}/>
         <AdsSlot slodId={ embi } />
-        <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
         <div className="w-full mt-10">
           <div className="text-center">
             <Title type="h7" text="Cambio Interbancario »" />
@@ -287,9 +280,9 @@ export default function Home({
             </div>
           </div>
         </div>
-        <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
+        <AdsSlot slodId={dF728x90} />
         <GraphVariation dataBuy={dataBuy[0].price} />
-        <div className="h-24 bg-lightGray w-full justify-center align-items-center"></div>
+        <AdsSlot slodId={dF300x250} />
         <Blog blogData={posts} className="justify-center" />
         <div className="h-64 bg-lightGray w-full justify-center align-items-center"></div>
         <div className="containerMoney pt-10">
@@ -301,12 +294,6 @@ export default function Home({
             <Money />
           </div>
         </div>
-        <AdsSlot slodId={dF728x90} />
-        <Blog blogData={posts} />
-        <br />
-        <AdsSlot slodId={dF300x250} />
-        <br />
-        <Equivalencias/>
         <Ced />
       </div>
 

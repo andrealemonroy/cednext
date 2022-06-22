@@ -118,7 +118,7 @@ const Equivalencias = () => {
           </div>
         </div>
       </div>
-      <div className='acordion'>
+      <div className='acordion_'>
         <h2 className={`${s.title_eq}`}>Detecta billetes falsos »</h2>
         <div className={`${s.cardm}`}>
           <div className={`${s.card_header}`}>

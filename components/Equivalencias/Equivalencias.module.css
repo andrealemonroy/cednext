@@ -41,9 +41,13 @@
 }
 .card_header a span{
   @apply absolute;
-  right: 15px;
-  top: 15px;
+  right: 10px;
+  top: 10px;
 }
+.link_panel a:hover{
+  background: #03665c;
+}
+
 .link_panel a{
   @apply block;
   background: #009688;
