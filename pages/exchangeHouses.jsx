@@ -1,56 +1,56 @@
-import React, { useEffect, useState } from "react";
-import api from "@framework/api";
-import Menu from "../components/Navbar/Menu";
-import Title from "../components/Title";
-import Footer from "../components/Footer";
-import HomeChangeDetails from "../components/homeChangeDetails";
-import ListCard from "../components/listCard";
-import Money from "../components/Money";
+import React, { useEffect, useState } from 'react';
+import api from '@framework/api';
+import Menu from '../components/Navbar/Menu';
+import Title from '../components/Title';
+import Footer from '../components/Footer';
+import HomeChangeDetails from '../components/HomeChangeDetails';
+import ListCard from '../components/ListCard';
+import Money from '../components/Money';
 
 const initialHome = {
-  id: "148",
-  longitud: "-77.03248380",
-  latitud: "-12.08427698",
-  nombre: "Sudameris",
-  direccion: "Jr. Ignacio Merino 2001",
-  compra: "",
-  venta: "",
-  tipo: "0",
+  id: '148',
+  longitud: '-77.03248380',
+  latitud: '-12.08427698',
+  nombre: 'Sudameris',
+  direccion: 'Jr. Ignacio Merino 2001',
+  compra: '',
+  venta: '',
+  tipo: '0',
   destacado: null,
-  description: "",
+  description: '',
   rutaimagen: null,
   servicios: null,
   bancos: null,
   referencia:
-    "En el cruce de Ignacio merino con Jr. Jose bernardo Alcedo / Registrado en la sbs",
+    'En el cruce de Ignacio merino con Jr. Jose bernardo Alcedo / Registrado en la sbs',
   idlocalidad: null,
-  id_pais: "1",
-  id_departamento: "15",
-  id_provincia: "127",
-  id_distrito: "1266",
-  idusuario: "1",
-  correo: "angelinepe@gmail.com",
-  password: "",
-  heading: "112",
-  fov: "0",
-  pitch: "0",
-  zoom: "0",
-  bcp: "",
-  interbank: "",
-  continental: "",
-  scotiabank: "",
+  id_pais: '1',
+  id_departamento: '15',
+  id_provincia: '127',
+  id_distrito: '1266',
+  idusuario: '1',
+  correo: 'angelinepe@gmail.com',
+  password: '',
+  heading: '112',
+  fov: '0',
+  pitch: '0',
+  zoom: '0',
+  bcp: '',
+  interbank: '',
+  continental: '',
+  scotiabank: '',
   dhl: null,
   wu: null,
   euro: null,
   yen: null,
   pagos: null,
-  horario: "",
-  telefono: "",
-  celular: "",
-  web: "",
-  services: "",
-  mv: "0",
-  sbs: "0",
+  horario: '',
+  telefono: '',
+  celular: '',
+  web: '',
+  services: '',
+  mv: '0',
+  sbs: '0',
 };
 
 const ExchangeHouses = ({
@@ -66,10 +66,10 @@ const ExchangeHouses = ({
   const [casasCambio, setCasasCambio] = useState(false);
   const [casaCambio, setCasaCambio] = useState(null);
 
-  const [nombreDistrito, setNombreDistrito] = useState("Cercado de Lima");
-  const [departament, setDepartament] = useState("15");
-  const [province, setProvince] = useState("127");
-  const [district, setDistrict] = useState("1251");
+  const [nombreDistrito, setNombreDistrito] = useState('Cercado de Lima');
+  const [departament, setDepartament] = useState('15');
+  const [province, setProvince] = useState('127');
+  const [district, setDistrict] = useState('1251');
   const [homeChange, setHomeChange] = useState(false);
   const [inicio, setInicio] = useState(true);
 
@@ -125,7 +125,7 @@ const ExchangeHouses = ({
     setDistrict(-1);
   };
   const onHandleDistrito = (e) => {
-    const option = e.target.value.split("-");
+    const option = e.target.value.split('-');
     const idDistrito = option[0];
     const nombreDistrito = option[1];
     setDistrict(idDistrito);
@@ -183,14 +183,14 @@ const ExchangeHouses = ({
             className="w-[300px] border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleDistrito}
           >
-            <option value={-1} name={"No seleccionado"}>
+            <option value={-1} name={'No seleccionado'}>
               Seleccione distrito
             </option>
             {distritos?.map((district) => (
               <option
                 className="bg-slate-300"
                 key={district.id}
-                value={district.id + "-" + district.distrito}
+                value={district.id + '-' + district.distrito}
               >
                 {district.distrito}
               </option>
