@@ -3,7 +3,7 @@ import api from '@framework/api';
 import Menu from '../components/Navbar/Menu';
 import Title from '../components/Title';
 import Footer from '../components/Footer';
-import HomeChangeDetails from '../components/HomeChangeDetails';
+import HomeChangeDetails from '../components/homeChangeDetails';
 import ListCard from '../components/ListCard';
 import Money from '../components/Money';
 
