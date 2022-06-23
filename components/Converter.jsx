@@ -86,7 +86,7 @@ const Converter = (props) => {
         );
   };
   return (
-    <div className="relative containerConverter w-full">
+    <div className="relative containerConverter">
       <div className="flex space-x-2">
         <div className="flex bg-third px-2 rounded-t-lg shadowPromote">
           <img src="/icons/promote.svg" />
@@ -104,9 +104,9 @@ const Converter = (props) => {
           <div className="w-[100px] h-1 bg-secondary"></div>
         </div>
       </div>
-      <div className="bg-secondary sm:w-96 rounded-lg relative">
+      <div className="bg-secondary sm:w-[95%] rounded-lg relative">
         <div className="pt-2">
-          <div className="mx-auto w-80">
+          <div className="mx-auto w-[90%] sm:w-[90%] md:w-[90%]">
             <p className="text-white uppercase font-semibold text-xs mb-2">
               Tú envías {currencySent === "PEN" ? "SOLES" : "DÓLARES"}
             </p>
@@ -130,7 +130,7 @@ const Converter = (props) => {
           <img src="icons/change.svg" />
         </div>
         <div>
-          <div className="mx-auto w-80">
+          <div className="mx-auto w-[90%] sm:w-[90%] md:w-[90%]">
             <div className="relative divide-x h-auto divide-lgray">
               <input
                 value={secondValue}

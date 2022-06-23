@@ -19,16 +19,19 @@ const BasicInformation = () => {
       <div className="pt-4">
         <Title type="h1" align="center" text="cuantoestaeldolar.pe" />
       </div>
-      <p className="p-6 text-2xl text-center">
+      <p className="p-10 text-2xl text-center">
         Somos una plataforma que tiene como propósito democratizar el precio del
         dólar en el Perú, su información es actualizada a diario.
       </p>
       <div className="container mx-auto px-4 grid lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-4">
         <div className="flex box-border border-4 border-gray rounded-lg">
-          <img src="img/compra.png" width={140} height={158} />
-          <div className="p-6 flex-2 align-middle">
-            <div className="pt-2">
-              <Title type="h2" align="left" text="¿Qué es la compra?" />
+          <img
+            src="img/buy-dolar.svg"
+            className="w-[140px] h-[160px] mt-[30px] ml-[23px]"
+          />
+          <div className="p-8 flex-2 align-middle">
+            <div className="pt-4">
+              <Title type="h6" align="left" text="¿Qué es la compra?" />
             </div>
             <div className="text-justify pt-6 text-[18px]">
               Es cuando una casa de cambio te compra tus dólares.
@@ -36,12 +39,15 @@ const BasicInformation = () => {
           </div>
         </div>
         <div className="flex box-border border-4 border-gray rounded-lg">
-          <img src="img/venta.png" width={105.27} />
-          <div className="p-6 flex-2 align-middle">
-            <div className="pt-2">
-              <Title type="h2" align="left" text="¿Qué es venta?" />
+          <img
+            src="img/sale-dolar.svg"
+            className="w-[105.27px] h-[145.13px] mt-[21px] ml-[23px]"
+          />
+          <div className="p-8 pl-12 md:pl-16 pr-10 flex-2 align-middle">
+            <div className="pt-4">
+              <Title type="h6" align="left" text="¿Qué es venta?" />
             </div>
-            <div className="text-justify pt-6 text-[18px]">
+            <div className="text-justify pt-4 text-[18px]">
               Es cuando una casa de cambio te VENDE sus dólares.
             </div>
           </div>
