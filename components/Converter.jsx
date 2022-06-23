@@ -96,11 +96,15 @@ const Converter = (props) => {
           </div>
         </div>
         <div className="my-auto">
-          <p>Compra: {props.exchangeRate.buy.cost}</p>
+          <p className="text-sm sm:text-sm md:text-base">
+            Compra: {props.exchangeRate.buy.cost}
+          </p>
           <div className="w-[100px] h-1 bg-secondary"></div>
         </div>
         <div className="my-auto">
-          <p>Venta: {props.exchangeRate.sale.cost}</p>
+          <p className="text-sm sm:text-sm md:text-base">
+            Venta: {props.exchangeRate.sale.cost}
+          </p>
           <div className="w-[100px] h-1 bg-secondary"></div>
         </div>
       </div>

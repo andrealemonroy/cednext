@@ -267,7 +267,7 @@ body {
 
   .containerConverter {
     margin-top: 30px;
-    width: 98%;
+    width: 100%;
     justify-content: center;
   }
 
@@ -297,4 +297,9 @@ body {
   .containerInitial {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .containerConverter {
+    width: 98%;
+  }
+
 }
