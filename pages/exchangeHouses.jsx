@@ -129,7 +129,16 @@ const ExchangeHouses = ({
   const onHandleDistrito = (e) => {
     const option = e.target.value.split("-");
     const idDistrito = option[0];
-    const nombreDistrito = option[1].toUpperCase();
+    let words = option[1].split(" ");
+    if (words.length > 2) {
+      console.log(words[words.length - 1]);
+      words[words.length - 1] =
+        words[words.length - 1].charAt[0].toUpperCase() +
+        words[words.length - 1].toLowerCase().slice(1);
+      option[1] = words.join(" ");
+    }
+    const nombreDistrito = option[1];
+    option[1] === "Cercado de lima" ? "Cercado de Lima" : option[1];
     setDistrict(idDistrito);
     setNombreDistrito(nombreDistrito);
     // setInicio(false);
@@ -217,7 +226,7 @@ const ExchangeHouses = ({
         {homeChange && <HomeChangeDetails datos={homeChange} />}
         {casaCambio === null && (
           <h1 className="py-10 text-4xl text-gray-900 font-black">
-            Casas de cambio de {nombreDistrito}
+            Casas de cambio de | {nombreDistrito}
           </h1>
         )}
         <div className="containerHome pt-4">

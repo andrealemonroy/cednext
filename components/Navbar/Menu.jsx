@@ -24,7 +24,7 @@ const Menu = ({ menu, onlineExchangeHouses }) => {
   return (
     <>
       {!scrolled ? (
-        <div className="justify-between h-20 w-screen sm:w-full bg-primary px-6 py-1 flex">
+        <div className="justify-between h-20 w-screen sm:w-full bg-primary px-6 py-1 flex mb-4">
           <Image
             height="51"
             width="96"
