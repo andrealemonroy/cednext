@@ -8,10 +8,13 @@ const Quotation = ({
   exchangeEuro,
 }) => {
   return (
-    <div id="converter" className="sm:flex justify-between mt-5">
+    <div
+      id="converter"
+      className="sm:flex justify-between md:justify-center sm:justify-center mt-5"
+    >
       <div div className="mt-10">
-        <div className="flex sm:w-[500px]">
-          <div className="w-[200px] flex">
+        <div className="flex w-[95vw] sm:w-[95vw] lg:w-[500px]">
+          <div className="flex-col-reverse sm:flex-row items-center w-[200px] flex">
             <Title type="h2" text="Cotización" />
             <button
               onClick={exportAsPicture}
@@ -29,7 +32,7 @@ const Quotation = ({
             </div>
           </div>
         </div>
-        <div className=" sm:w-[500px]">
+        <div className="w-[95vw] sm:w-[95vw] lg:w-[500px]">
           <div className="flex py-3">
             <div className="w-[350px] flex align-middle">
               <div className="w-10 my-auto">

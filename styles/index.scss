@@ -147,14 +147,6 @@ body {
   }
 }
 
-// .wrapper {
-//   left: -100%;
-// }
-
-// .wrapper-2 {
-//   left: 90%;
-// }
-
 .target {
   transition: 300s linear;
   -webkit-animation: rightToLeft 300s linear;
@@ -226,7 +218,7 @@ body {
 
 .containerInitial {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   gap: 20px;
 }
@@ -240,10 +232,15 @@ body {
   padding: 10px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .containerConverter {
-    margin-bottom: 10px;
+    margin-top: 30px;
     width: 100%;
+    justify-content: center;
+  }
+
+  .containerInitial {
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .containerMoney {
@@ -268,13 +265,9 @@ body {
     grid-template-columns: repeat(1, auto);
   }
 
-  .containerInitial {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
   .containerConverter {
     margin-top: 30px;
-    width: 400px;
+    width: 100%;
     justify-content: center;
   }
 
@@ -298,4 +291,15 @@ body {
 
 .MuiAccordionSummary-root {
   margin: 0px;
+}
+
+@media (max-width: 660px) {
+  .containerInitial {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .containerConverter {
+    width: 98%;
+  }
+
 }

@@ -266,8 +266,8 @@ export default function Home({
             <Money />
           </div>
         </div>
+        <div className="h-64 mt-10 bg-lightGray w-full justify-center align-items-center"></div>
       </div>
-      <div className="h-64 mt-10 bg-lightGray w-full justify-center align-items-center"></div>
       <BasicInformation />
       <Questions />
       <Footer />
