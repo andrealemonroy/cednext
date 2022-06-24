@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import HomeChangeDetails from "../components/homeChangeDetails";
 import ListCard from "../components/ListCard";
 import Money from "../components/Money";
+import Image from "next/image";
 
 const initialHome = {
   id: "148",
@@ -150,11 +151,11 @@ const ExchangeHouses = ({
   return (
     <div className="h-[100%]">
       <Menu menu={menu} onlineExchangeHouses={onlineExchangeHouses} />
-      <div className="grid grid-cols-6 pt-10 ">
+      <div className="grid grid-cols-5 pt-10 justify-between gap-5">
         <div className="w-[100%] align-middle col-span-1 ">
-          <Title type="h6" text="Cambio de monedas en Perú" />
+          <Title type="h7" text="Cambio de monedas en Perú" />
         </div>
-        <div className="container lg:flex md:flex gap-4 px-2 sm:grid col-span-4">
+        <div className="container lg:flex md:flex gap-4 px-2 sm:grid col-span-3">
           <select
             id="departaments"
             className="w-[300px] border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
@@ -211,9 +212,8 @@ const ExchangeHouses = ({
           </select>
         </div>
         <button
-          col-span-1
           onClick={() => searchExchangeHouses}
-          className="my-auto bg-lgreen w-40 h-9 text-white rounded-3xl shadow-sm shadow-black"
+          className="my-auto bg-lgreen w-auto h-9 text-white rounded-3xl shadow-sm shadow-black"
         >
           Buscar
         </button>
@@ -230,34 +230,52 @@ const ExchangeHouses = ({
           </h1>
         )}
         <div className="containerHome pt-4">
-          <div className="homeChangeList">
+          <div>
             {casaCambio === null &&
               casasCambio &&
               casasCambio?.map((casas) => (
-                <ul key={casas.url}>
-                  <div
-                    key={casas.url}
-                    className="bg-slate-100  rounded-lg drop-shadow-md border-2 p-8  border-gray"
-                    onClick={() => onHandleCasa(casas.url)}
-                  >
-                    <a
-                      className="no-underline hover:underline"
-                      type={casas.url}
-                      rel={casas.url}
+                <>
+                  <div className="homeChangeList">
+                    <ul
+                      key={casas.url}
+                      className="border-y-2 border-gray grid gap-4 grid-cols-4"
                     >
-                      <h1 className="text-3xl text-[#0096A6] font-black">
-                        {casas.nombre}
-                      </h1>
-                    </a>
-                    <h2 className="py-5 text-2xl">
-                      Dirección: {casas.direccion}
-                    </h2>
-                    <h2 className="py-2">Referencia: {casas.referencia}</h2>
+                      <div
+                        key={casas.url}
+                        className="bg-slate-100  p-8  col-span-3"
+                        onClick={() => onHandleCasa(casas.url)}
+                      >
+                        <a
+                          className="no-underline hover:underline"
+                          type={casas.url}
+                          rel={casas.url}
+                        >
+                          <h1 className="text-3xl text-[#0096A6] font-black">
+                            {casas.nombre}
+                          </h1>
+                        </a>
+                        <h2 className="py-5 text-2xl">
+                          Dirección: {casas.direccion}
+                        </h2>
+                        <h2 className="py-2">Referencia: {casas.referencia}</h2>
+                      </div>
+                      {casas.referencia.indexOf(" sbs", 0) > 0 && (
+                        <div className="col-span-1 pt-14">
+                          <Image
+                            className="w-full border-gray"
+                            src="/img/registerSbs.svg"
+                            alt="Registrada en la SBS"
+                            width={207.21}
+                            height={89}
+                          />
+                        </div>
+                      )}
+                    </ul>
                   </div>
-                </ul>
+                </>
               ))}
           </div>
-          <div className="Money">
+          <div className="Money mb-10">
             <Money />
           </div>
         </div>

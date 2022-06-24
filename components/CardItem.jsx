@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { cabecera, lugares } from "../utils/imageGeo";
 
 const CardItem = (name, image = "") => {
   const myLoader = ({ src, width, quality }) => {
