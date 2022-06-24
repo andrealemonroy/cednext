@@ -158,14 +158,14 @@ const ExchangeHouses = ({
   return (
     <div className="h-[100%]">
       <Menu menu={menu} onlineExchangeHouses={onlineExchangeHouses} />
-      <div className="grid grid-cols-5 pt-10 justify-between gap-5">
-        <div className="w-[100%] align-middle col-span-1 ">
-          <Title type="h7" text="Cambio de monedas en Perú" />
+      <div className="container grid mb-52 md:mb-40 lg:mb-8 grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 pt-10 justify-between ">
+        <div className="col-span-1 pl-2 sm:px-4 md:px-4 lg:px-2 align-middle">
+          <Title type="h7" text="Cambio de monedas en Perú" align="center" />
         </div>
-        <div className="container lg:flex md:flex gap-4 px-2 sm:grid col-span-3">
+        <div className="grid pt-2 gap-3 h-[56px] px-2 sm:px-6 lg:grid-cols-4 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-4 ">
           <select
             id="departaments"
-            className="w-[300px] border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="col-span-1 border border-gray bg-gray text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleDepartamento}
           >
             <option className="bg-slate-200" value={-1}>
@@ -184,7 +184,7 @@ const ExchangeHouses = ({
           </select>
           <select
             id="provinces"
-            className="w-[300px]  border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="col-span-1  border border-gray bg-gray text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleProvincia}
           >
             <option value={-1}>Seleccione provincia</option>
@@ -201,7 +201,7 @@ const ExchangeHouses = ({
           </select>
           <select
             id="districts"
-            className="w-[300px] border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="col-span-1 border border-gray bg-gray text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleDistrito}
           >
             <option value={-1} name={"No seleccionado"}>
@@ -217,22 +217,22 @@ const ExchangeHouses = ({
               </option>
             ))}
           </select>
+          <button
+            onClick={() => searchExchangeHouses}
+            className="col-span-1 w-auto my-auto bg-lgreen h-9 text-white rounded-3xl shadow-sm shadow-black"
+          >
+            Buscar
+          </button>
         </div>
-        <button
-          onClick={() => searchExchangeHouses}
-          className="my-auto bg-lgreen w-auto h-9 text-white rounded-3xl shadow-sm shadow-black"
-        >
-          Buscar
-        </button>
       </div>
-      <div className="min-h-screen">
+      <div className="">
         {inicio &&
           departamentos?.map((el) => {
             <ListCard name={el.departamento} imagen="" />;
           })}
         {homeChange && <HomeChangeDetails datos={homeChange} />}
         {casaCambio === null && (
-          <h1 className="py-10 text-4xl text-gray-900 font-black">
+          <h1 className="pl-6 text-4xl text-gray-900 font-black">
             Casas de cambio de | {nombreDistrito}
           </h1>
         )}
@@ -242,14 +242,14 @@ const ExchangeHouses = ({
               casasCambio &&
               casasCambio?.map((casas) => (
                 <>
-                  <div className="homeChangeList">
+                  <div>
                     <ul
                       key={casas.url}
-                      className="border-y-2 border-gray grid gap-4 grid-cols-4"
+                      className="border-y-2 border-gray grid gap-4 grid-cols-1 md:grid-cols-4"
                     >
                       <div
                         key={casas.url}
-                        className="bg-slate-100  p-8  col-span-3"
+                        className="bg-slate-100  p-8  grid-cols-1 md:col-span-3"
                         onClick={() => onHandleCasa(casas.url)}
                       >
                         <a
@@ -267,7 +267,7 @@ const ExchangeHouses = ({
                         <h2 className="py-2">Referencia: {casas.referencia}</h2>
                       </div>
                       {casas.referencia.indexOf(" sbs", 0) > 0 && (
-                        <div className="col-span-1 pt-14">
+                        <div className="col-span-1 pt-0 pl-16 sm:pl-0 sm:pr-8 pb-10 md:pt-14 ">
                           <Image
                             className="w-full border-gray"
                             src="/img/registerSbs.svg"
