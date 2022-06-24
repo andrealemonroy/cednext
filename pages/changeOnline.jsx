@@ -14,10 +14,6 @@ import html2canvas from "html2canvas";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import GraphVariation from "../components/GraphVariation";
-import Money from "../components/Money";
-import BasicInformation from "../components/BasicInformation";
-import Questions from "../components/Questions";
-import EquivalenceMoney from "../components/EquivalenceMoney";
 import Quotation from "../components/Quotation";
 
 export default function Home({
@@ -37,7 +33,6 @@ export default function Home({
   // menu[3].path = 'calculatorMoney';
   menu[4].path = "newsChange";
   // menu[5].path = "services";
-
   const [onlineExchange, setOnlineExchange] = useState();
   const [exchangeRate, setExchangeRate] = useState(exchangeSunat);
   const exportAsPicture = () => {
@@ -256,20 +251,7 @@ export default function Home({
         <GraphVariation dataBuy={dataBuy} />
         <div className="h-24 bg-lightGray w-full justify-center align-items-center"></div>
         <Blog blogData={posts} className="justify-center" />
-        <div className="h-64 mb-[49px] bg-lightGray w-full justify-center align-items-center"></div>
-        <div className="containerMoney">
-          <div className="containerEquivalence">
-            <EquivalenceMoney buy={buyDolar} sale={saleDolar} />
-          </div>
-          <div className="containerDetected">
-            <Title type="h2" text="Detecta billetes falsos »" />
-            <Money />
-          </div>
-        </div>
-        <div className="h-64 mt-10 bg-lightGray w-full justify-center align-items-center"></div>
       </div>
-      <BasicInformation />
-      <Questions />
       <Footer />
     </div>
   );
