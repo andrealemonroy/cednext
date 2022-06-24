@@ -74,6 +74,13 @@ const ExchangeHouses = ({
   const [homeChange, setHomeChange] = useState(false);
   const [inicio, setInicio] = useState(true);
 
+  menu[0].path = "exchangeHouses";
+  menu[1].path = "changeOnline";
+  menu[2].path = "variationDolar";
+  // menu[3].path = 'calculatorMoney';
+  menu[4].path = "newsChange";
+  // menu[5].path = "services";
+
   useEffect(() => {
     refresh();
     async function refresh() {
