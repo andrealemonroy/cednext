@@ -282,9 +282,9 @@ const ExchangeHouses = ({
                 </>
               ))}
           </div>
-          <div className="Money mb-10">
+          {/* <div className="Money mb-10">
             <Money />
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />
