@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
-import { useRouter } from "next/router";
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { useRouter } from 'next/router';
 
 const Menu = ({ menu, onlineExchangeHouses }) => {
   const router = useRouter();
@@ -18,45 +18,52 @@ const Menu = ({ menu, onlineExchangeHouses }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
       {!scrolled ? (
-        <div className="justify-between h-20 w-screen sm:w-full bg-primary px-6 py-1 flex">
-          <Image
-            height="51"
-            width="96"
-            className="h-12 my-auto cursor-pointer"
-            src="/icons/logoBlack.svg"
-            alt="Logo de cuánto está el dólar"
-            onClick={() => router.push("/")}
-          />
-          <nav className="hidden sm:flex align-middle items-center justify-between sm:max-w-4xl mx-auto">
+        <div className="justify-between h-[78px] w-screen sm:w-full bg-primary flex">
+          <div className="w-full max-w-[90px] m-auto text-center">
+            <Image
+              height="51"
+              width="96"
+              className="h-12 cursor-pointer"
+              src="/icons/logoBlack.svg"
+              alt="Logo de cuánto está el dólar"
+              onClick={() => router.push('/')}
+            />
+          </div>
+          <nav className="hidden sm:flex align-middle items-center justify-between w-full max-w-[820px]">
             <ul className="flex">
               {menu?.map(({ id, name, path }) => {
                 return (
                   <Link key={id} href={path}>
-                    <a className="font-medium cursor-pointer mx-3">{name}</a>
+                    <a className="font-bold cursor-pointer mx-2">{name}</a>
                   </Link>
                 );
               })}
             </ul>
-            <div className="mx-3">
-              <FaFacebook className="text-2xl cursor-pointer" />
-            </div>
-            <div className="mx-3">
-              <FaYoutube className="text-2xl cursor-pointer" />
-            </div>
-            <div className="mx-3">
-              <FaTwitter className="text-2xl cursor-pointer" />
+            <div className="flex pr-2 max-w-[120px]">
+              <div className="mx-1 my-auto">
+                <FaYoutube className="text-lg cursor-pointer" />
+              </div>
+              <div className="mx-1 my-auto">
+                <FaTwitter className="text-lg cursor-pointer" />
+              </div>
+              <div className="mx-1 my-auto">
+                <img src="/icons/instagramBlack.svg" alt="instagram" className='cursor-pointer' />
+              </div>
+              <div className="mx-1 my-auto">
+                <img src="/icons/downArrow.svg" alt="Menu" className='cursor-pointer'/>
+              </div>
             </div>
           </nav>
           {openNav ? (
             <div
               onClick={() => setOpenNav(false)}
-              className="w-12 h-12 bg-primary rounded-full mt-2 text-center grid justify-center items-center"
+              className="h-12 bg-primary rounded-full mt-2 text-center grid justify-center items-center"
             >
               <Image
                 height="40"
@@ -87,7 +94,7 @@ const Menu = ({ menu, onlineExchangeHouses }) => {
           <Image
             height="51"
             width="96"
-            className="h-12 my-auto"
+            className="h-12"
             src="/icons/logo.svg"
             alt="Logo de cuánto está el dólar "
           />
@@ -100,13 +107,13 @@ const Menu = ({ menu, onlineExchangeHouses }) => {
                       <div key={index} className="flex mx-2 sm:mx-4 sm:w-64">
                         <div className="w-24 sm:max-w-32 sm:w-32 flex align-middle">
                           <img
-                            src={"/" + onlineExchangeHouse.img}
+                            src={'/' + onlineExchangeHouse.img}
                             alt="Logo de casa de cambio: TuCambista"
-                            className="w-32 pr-2 sm:w-40 sm:max-w-40 sm:max-h-8 my-auto"
+                            className="w-32 pr-2 sm:w-40 sm:max-w-40 sm:max-h-8"
                           />
                         </div>
 
-                        <div className="mx-2 my-auto">
+                        <div className="mx-2">
                           <p className="text-secondary">Compra</p>
                           <p>{onlineExchangeHouse.rates[0].buy.cost}</p>
                         </div>
@@ -205,12 +212,12 @@ const Menu = ({ menu, onlineExchangeHouses }) => {
             </div>
           ) : (
             <div className="flex">
-              <nav className="flex align-middle items-center justify-between max-w-4xl min-w-max mx-10">
+              <nav className="flex align-middle items-center justify-between max-w-4xl mx-10">
                 <ul className="flex">
                   {menu.map(({ id, name, path }) => {
                     return (
                       <Link key={id} href={path}>
-                        <a className="font-medium cursor-pointer mx-4">
+                        <a className="font-medium cursor-pointer mx-2">
                           {name}
                         </a>
                       </Link>

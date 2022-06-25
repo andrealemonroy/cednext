@@ -9,7 +9,7 @@ import s from './Footer.module.css'
 
 function Footer() {
   return (
-    <>
+    <div className="absolute w-screen">
       <div className={`${s.bg_footer}`}>
         <div className="sm:p-5">
           <ul>
@@ -87,7 +87,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

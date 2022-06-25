@@ -13,12 +13,6 @@ const Quotation = ({
         <div className="flex sm:w-[500px]">
           <div className="w-[200px] flex">
             <Title type="h2" text="Cotización" />
-            <button
-              onClick={exportAsPicture}
-              className="bg-lgreen ml-2 w-[140px] h-9 text-white px-4 rounded-3xl shadow-sm shadow-black"
-            >
-              Compartir
-            </button>
           </div>
           <div className="flex my-auto justify-around w-full">
             <div>

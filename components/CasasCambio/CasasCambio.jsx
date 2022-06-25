@@ -28,9 +28,6 @@ const CasasCambio = ({ onlineExchangeHouses }) => {
           Despliega para horarios de banco a banco. Diferidas en todas las
           empresas.
         </p>
-        <button className="bg-lgreen w-[140px] h-9 text-white px-4 rounded-3xl shadow-sm shadow-black">
-          Compartir
-        </button>
       </div>
       <div className="sm:flex overflow-hidden max-w-5xl">
         <div className="sm:w-1/2 mr-1">

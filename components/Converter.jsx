@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const Converter = (props) => {
   const [firstValue, setFirstValue] = useState(0);
   const [secondValue, setSecondValue] = useState(0);
-  const [currencySent, setCurrencySent] = useState("PEN");
-  const [currencyReceived, setCurrencyReceived] = useState("USD");
+  const [currencySent, setCurrencySent] = useState('PEN');
+  const [currencyReceived, setCurrencyReceived] = useState('USD');
   const [enable, setEnable] = useState(true);
   const exchange = () => {
     props.click({ firstValue, secondValue, currencySent });
@@ -23,7 +23,7 @@ const Converter = (props) => {
   // }, [secondValue]);
 
   const exchangeDefault = (value) => {
-    value != 0 && currencySent == "PEN"
+    value != 0 && currencySent == 'PEN'
       ? setSecondValue(
           parseFloat(
             value / parseFloat(props.exchangeRate.sale.cost).toFixed(3)
@@ -37,7 +37,7 @@ const Converter = (props) => {
   };
 
   const exchangeDefaultFirstValue = () => {
-    firstValue != 0 && currencyReceived == "PEN"
+    firstValue != 0 && currencyReceived == 'PEN'
       ? setFirstValue(secondValue / props.exchangeRate.sale.cost)
       : setFirstValue(secondValue * props.exchangeRate.buy.cost);
   };
@@ -53,28 +53,28 @@ const Converter = (props) => {
   const currencyIcon = (sent) =>
     sent ? (
       <div className="p-1 focus:outline-none focus:shadow-outline flex mr-2">
-        {currencySent === "USD" ? (
+        {currencySent === 'USD' ? (
           <img src="icons/flagUSA.svg" />
         ) : (
           <img src="icons/flagPeru.svg" />
         )}
-        <span className="font-bold text-xl">{currencySent}</span>
+        <span className="font-bold text-xl my-auto">{currencySent}</span>
       </div>
     ) : (
       <div className="p-1 focus:outline-none focus:shadow-outline flex mr-2">
-        {currencyReceived === "USD" ? (
+        {currencyReceived === 'USD' ? (
           <img src="icons/flagUSA.svg" />
         ) : (
           <img src="icons/flagPeru.svg" />
         )}
-        <span className="font-bold text-xl">{currencyReceived}</span>
+        <span className="font-bold text-xl my-auto">{currencyReceived}</span>
       </div>
     );
   const change = () => {
     debugger;
     setCurrencySent(currencyReceived);
     setCurrencyReceived(currencySent);
-    firstValue != 0 && currencySent == "PEN"
+    firstValue != 0 && currencySent == 'PEN'
       ? setSecondValue(
           parseFloat(
             firstValue * parseFloat(props.exchangeRate.buy.cost).toFixed(3)
@@ -120,19 +120,23 @@ const Converter = (props) => {
           </div>
         </div>
         <div className="my-auto">
-          <p>Compra: {props.exchangeRate.buy.cost}</p>
-          <div className="w-[100px] h-1 bg-secondary"></div>
+          <p className="text-lgreen text-sm my-2 text-center">
+            Compra: {props.exchangeRate.buy.cost}
+          </p>
+          <div className="w-[100px] h-1 bg-lgreen"></div>
         </div>
         <div className="my-auto">
-          <p>Venta: {props.exchangeRate.sale.cost}</p>
-          <div className="w-[100px] h-1 bg-secondary"></div>
+          <p className="text-lgreen text-sm my-2 text-center">
+            Venta: {props.exchangeRate.sale.cost}
+          </p>
+          <div className="w-[100px] h-1 bg-lgreen"></div>
         </div>
       </div>
       <div className="bg-secondary sm:w-96 rounded-lg relative">
-        <div className="pt-2">
+        <div className="">
           <div className="mx-auto w-80">
-            <p className="text-white uppercase font-semibold text-xs mb-2">
-              Tú envías {currencySent === "PEN" ? "SOLES" : "DÓLARES"}
+            <p className="text-white uppercase font-semibold text-xs py-4">
+              Tú envías {currencySent === 'PEN' ? 'SOLES' : 'DÓLARES'}
             </p>
             <div className="relative divide-x divide-lgray">
               <input
@@ -148,7 +152,7 @@ const Converter = (props) => {
         </div>
 
         <div
-          className="mx-auto my-4 bg-primary rounded-full border-2 w-10 h-10 flex align-middle justify-center p-1.5 shadow-md shadow-black cursor-pointer"
+          className="mx-auto my-2 bg-primary rounded-full  w-10 h-10 flex align-middle justify-center p-1.5 cursor-pointer"
           onClick={change}
         >
           <img src="icons/change.svg" />
@@ -166,10 +170,10 @@ const Converter = (props) => {
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-white uppercase font-semibold text-xs mt-2">
-                Tú recibes {currencyReceived === "USD" ? "DÓLARES" : "SOLES"}
+              <span className="text-white uppercase font-semibold text-xs mt-2  py-4">
+                Tú recibes {currencyReceived === 'USD' ? 'DÓLARES' : 'SOLES'}
               </span>
-              <span className="text-lgray text-xs mt-2">
+              <span className="text-lgray text-xs mt-2  py-4">
                 *Valor referencial SUNAT
               </span>
             </div>

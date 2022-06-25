@@ -4,9 +4,8 @@ import Menu from "../components/Navbar/Menu";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 import HomeChangeDetails from "../components/homeChangeDetails";
+import ListCard from "../components/listCard";
 import Money from "../components/Money";
-import Image from "next/image";
-import CardItem from "../components/CardItem";
 
 const initialHome = {
   id: "148",
@@ -114,55 +113,38 @@ const ExchangeHouses = ({
   const onHandleDepartamento = (e) => {
     const option = e.target.value;
     setDepartament(option);
-    // setProvince(-1);
-    // setDistrict(-1);
+    setProvince(-1);
+    setDistrict(-1);
     setHomeChange(false);
     setCasaCambio(null);
-    // console.log(casasCambio);
-    // console.log(casaCambio);
   };
 
   const onHandleProvincia = (e) => {
     const option = e.target.value;
     setProvince(option);
-    // setDistrict(-1);
+    setDistrict(-1);
   };
   const onHandleDistrito = (e) => {
     const option = e.target.value.split("-");
     const idDistrito = option[0];
-    let words = option[1].split(" ");
-    if (words.length > 1) {
-      let name = words[words.length - 1];
-      let name1 = words[1];
-      words[words.length - 1] =
-        name.toUpperCase().slice(0, 1) + name.toLowerCase().slice(1);
-      if (words.length === 4) {
-        words[1] =
-          name1.toUpperCase().slice(0, 1) + name1.toLowerCase().slice(1);
-      }
-      option[1] = words.join(" ");
-    }
     const nombreDistrito = option[1];
-    option[1] === "Cercado de lima" ? "Cercado de Lima" : option[1];
     setDistrict(idDistrito);
     setNombreDistrito(nombreDistrito);
-    // setInicio(false);
-  };
-
-  const searchExchangeHouses = () => {
     setInicio(false);
   };
+
+  const searchExchangeHouses = () => {};
   return (
     <div className="h-[100%]">
       <Menu menu={menu} onlineExchangeHouses={onlineExchangeHouses} />
-      <div className="container grid mb-48 md:mb-40 lg:mb-8 grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 pt-10 justify-between ">
-        <div className="col-span-1 pl-6 sm:px-6 md:px-6 lg:px-2 align-middle">
-          <Title type="h7" text="Cambio de monedas en Perú" align="center" />
+      <div className="grid grid-cols-6 pt-10 ">
+        <div className="w-[100%] align-middle col-span-1 ">
+          <Title type="h6" text="Cambio de monedas en Perú" />
         </div>
-        <div className="grid pt-2 gap-3 h-[56px] px-6 sm:px-6 lg:grid-cols-4 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-4 ">
+        <div className="container lg:flex md:flex gap-4 px-2 sm:grid col-span-4">
           <select
             id="departaments"
-            className="col-span-1 border border-gray bg-gray text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="w-[300px] border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleDepartamento}
           >
             <option className="bg-slate-200" value={-1}>
@@ -181,7 +163,7 @@ const ExchangeHouses = ({
           </select>
           <select
             id="provinces"
-            className="col-span-1  border border-gray bg-gray text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="w-[300px]  border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleProvincia}
           >
             <option value={-1}>Seleccione provincia</option>
@@ -198,7 +180,7 @@ const ExchangeHouses = ({
           </select>
           <select
             id="districts"
-            className="col-span-1 border border-gray bg-gray text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
+            className="w-[300px] border border-gray bg-gray text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
             onChange={onHandleDistrito}
           >
             <option value={-1} name={"No seleccionado"}>
@@ -214,74 +196,57 @@ const ExchangeHouses = ({
               </option>
             ))}
           </select>
-          <button
-            onClick={() => searchExchangeHouses}
-            className="col-span-1 w-auto my-auto bg-lgreen h-9 text-white rounded-3xl shadow-sm shadow-black"
-          >
-            Buscar
-          </button>
         </div>
+        <button
+          col-span-1
+          onClick={() => searchExchangeHouses}
+          className="my-auto bg-lgreen w-40 h-9 text-white rounded-3xl shadow-sm shadow-black"
+        >
+          Buscar
+        </button>
       </div>
-      <div>
-        {inicio && (
-          <CardItem LocalData={departamentos} className="justify-center" />
-        )}
+      <div className="min-h-screen">
+        {inicio &&
+          departamentos?.map((el) => {
+            <ListCard name={el.departamento} imagen="" />;
+          })}
         {homeChange && <HomeChangeDetails datos={homeChange} />}
-        {casaCambio === null && !inicio && (
-          <h1 className="pl-6 text-4xl text-gray-900 font-black">
-            Casas de cambio de | {nombreDistrito}
+        {casaCambio === null && district > 0 && (
+          <h1 className="py-10 text-4xl text-gray-900 font-black">
+            Casas de cambio de {nombreDistrito}
           </h1>
         )}
         <div className="containerHome pt-4">
-          <div>
+          <div className="homeChangeList">
             {casaCambio === null &&
-              !inicio &&
               casasCambio &&
               casasCambio?.map((casas) => (
-                <>
-                  <div>
-                    <ul
-                      key={casas.url}
-                      className="border-y-2 border-gray grid gap-4 grid-cols-1 md:grid-cols-4"
+                <ul key={casas.url}>
+                  <div
+                    key={casas.url}
+                    className="bg-slate-100  rounded-lg drop-shadow-md border-2 p-8  border-gray"
+                    onClick={() => onHandleCasa(casas.url)}
+                  >
+                    <a
+                      className="no-underline hover:underline"
+                      type={casas.url}
+                      rel={casas.url}
                     >
-                      <div
-                        key={casas.url}
-                        className="bg-slate-100  p-8  grid-cols-1 md:col-span-3"
-                        onClick={() => onHandleCasa(casas.url)}
-                      >
-                        <a
-                          className="no-underline hover:underline"
-                          type={casas.url}
-                          rel={casas.url}
-                        >
-                          <h1 className="text-3xl text-[#0096A6] font-black">
-                            {casas.nombre}
-                          </h1>
-                        </a>
-                        <h2 className="py-5 text-2xl">
-                          Dirección: {casas.direccion}
-                        </h2>
-                        <h2 className="py-2">Referencia: {casas.referencia}</h2>
-                      </div>
-                      {casas.referencia.indexOf(" sbs", 0) > 0 && (
-                        <div className="col-span-1 pt-0 pl-16 sm:pl-0 sm:pr-8 pb-10 md:pt-14 ">
-                          <Image
-                            className="w-full border-gray"
-                            src="/img/registerSbs.svg"
-                            alt="Registrada en la SBS"
-                            width={207.21}
-                            height={89}
-                          />
-                        </div>
-                      )}
-                    </ul>
+                      <h1 className="text-3xl text-[#0096A6] font-black">
+                        {casas.nombre}
+                      </h1>
+                    </a>
+                    <h2 className="py-5 text-2xl">
+                      Dirección: {casas.direccion}
+                    </h2>
+                    <h2 className="py-2">Referencia: {casas.referencia}</h2>
                   </div>
-                </>
+                </ul>
               ))}
           </div>
-          {/* <div className="Money mb-10">
+          <div className="Money">
             <Money />
-          </div> */}
+          </div>
         </div>
       </div>
       <Footer />

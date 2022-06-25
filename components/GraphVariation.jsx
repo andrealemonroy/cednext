@@ -53,14 +53,6 @@ const GraphVariation = ({ dataBuy }) => {
         />
 
         <div className="w-full mt-4">
-          <div className="text-center">
-            <button
-              onClick={exportAsPicture}
-              className="mt-2 bg-lgreen w-[140px] h-9 text-white px-4 rounded-3xl shadow-sm shadow-black"
-            >
-              Compartir
-            </button>
-          </div>
           <Title type="h3" text={_dateSpanish} align="right" />
         </div>
       </div>

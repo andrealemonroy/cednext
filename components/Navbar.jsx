@@ -26,7 +26,7 @@ const Navbar = () => {
           <nav className="flex align-middle items-center justify-between max-w-4xl mx-auto">
             {navLinks.map((link, index) => {
               return (
-                <ul key={index} className="mx-3">
+                <ul key={index} className="mx-1">
                   <Link href={link.path}>
                     <li key={index} className="font-medium cursor-pointer">
                       {link.name}
@@ -50,7 +50,7 @@ const Navbar = () => {
         <div className="h-20 w-full bg-white px-6 py-1 flex space-between fixed top-0 z-50 shadow-lg sm:max-w-5xl">
           <img className="h-12 my-auto" src="icons/logo.svg" />
           {!openNav ? (
-            <div className="flex  max-w-4xl ">
+            <div className="flex max-w-4xl">
               <div className="nav-data overflow-hidden">
                 <div className="wrapper">
                   <div className="target flex">
