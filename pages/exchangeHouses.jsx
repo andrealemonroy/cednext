@@ -4,9 +4,9 @@ import Menu from "../components/Navbar/Menu";
 import Title from "../components/Title";
 import Footer from "../components/Footer";
 import HomeChangeDetails from "../components/homeChangeDetails";
-import ListCard from "../components/ListCard";
 import Money from "../components/Money";
 import Image from "next/image";
+import CardItem from "../components/CardItem";
 
 const initialHome = {
   id: "148",
@@ -125,8 +125,8 @@ const ExchangeHouses = ({
     // setDistrict(-1);
     setHomeChange(false);
     setCasaCambio(null);
-    console.log(casasCambio);
-    console.log(casaCambio);
+    // console.log(casasCambio);
+    // console.log(casaCambio);
   };
 
   const onHandleProvincia = (e) => {
@@ -138,11 +138,15 @@ const ExchangeHouses = ({
     const option = e.target.value.split("-");
     const idDistrito = option[0];
     let words = option[1].split(" ");
-    if (words.length > 2) {
-      console.log(words[words.length - 1]);
+    if (words.length > 1) {
+      let name = words[words.length - 1];
+      let name1 = words[1];
       words[words.length - 1] =
-        words[words.length - 1].charAt[0].toUpperCase() +
-        words[words.length - 1].toLowerCase().slice(1);
+        name.toUpperCase().slice(0, 1) + name.toLowerCase().slice(1);
+      if (words.length === 4) {
+        words[1] =
+          name1.toUpperCase().slice(0, 1) + name1.toLowerCase().slice(1);
+      }
       option[1] = words.join(" ");
     }
     const nombreDistrito = option[1];
@@ -158,11 +162,11 @@ const ExchangeHouses = ({
   return (
     <div className="h-[100%]">
       <Menu menu={menu} onlineExchangeHouses={onlineExchangeHouses} />
-      <div className="container grid mb-52 md:mb-40 lg:mb-8 grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 pt-10 justify-between ">
-        <div className="col-span-1 pl-2 sm:px-4 md:px-4 lg:px-2 align-middle">
+      <div className="container grid mb-48 md:mb-40 lg:mb-8 grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 pt-10 justify-between ">
+        <div className="col-span-1 pl-6 sm:px-6 md:px-6 lg:px-2 align-middle">
           <Title type="h7" text="Cambio de monedas en Perú" align="center" />
         </div>
-        <div className="grid pt-2 gap-3 h-[56px] px-2 sm:px-6 lg:grid-cols-4 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-4 ">
+        <div className="grid pt-2 gap-3 h-[56px] px-6 sm:px-6 lg:grid-cols-4 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-4 ">
           <select
             id="departaments"
             className="col-span-1 border border-gray bg-gray text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 drop-shadow-md"
@@ -225,13 +229,12 @@ const ExchangeHouses = ({
           </button>
         </div>
       </div>
-      <div className="">
-        {inicio &&
-          departamentos?.map((el) => {
-            <ListCard name={el.departamento} imagen="" />;
-          })}
+      <div>
+        {inicio && (
+          <CardItem LocalData={departamentos} className="justify-center" />
+        )}
         {homeChange && <HomeChangeDetails datos={homeChange} />}
-        {casaCambio === null && (
+        {casaCambio === null && !inicio && (
           <h1 className="pl-6 text-4xl text-gray-900 font-black">
             Casas de cambio de | {nombreDistrito}
           </h1>
@@ -239,6 +242,7 @@ const ExchangeHouses = ({
         <div className="containerHome pt-4">
           <div>
             {casaCambio === null &&
+              !inicio &&
               casasCambio &&
               casasCambio?.map((casas) => (
                 <>

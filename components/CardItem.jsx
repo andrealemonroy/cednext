@@ -1,23 +1,34 @@
 import React from "react";
 import Image from "next/image";
-import { cabecera, lugares } from "../utils/imageGeo";
+import { FaAngleDoubleRight } from "react-icons/fa";
+import Title from "./Title";
 
-const CardItem = (name, image = "") => {
-  const myLoader = ({ src, width, quality }) => {
-    return `${src}?w=${width}&q=${quality || 75}`;
-  };
+const CardItem = ({ LocalData }) => {
+  const imagen = "/img/imageTmp.svg";
   return (
-    <div className="rounded overflow-hidden shadow-lg">
-      <Image
-        className="w-full border-gray"
-        src="/img/cusco.jpg"
-        alt={name}
-        width={140}
-        height={158}
-      />
-      <div className="font-bold text-xl mb-2">{name}</div>
-    </div>
+    <>
+      <div className="px-5 pb-6">
+        <Title type="h1" text="Casas de cambio" />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
+        {LocalData?.map((item, index) => (
+          <div key={index} className="rounded mx-1 my-1">
+            <div className="w-full">
+              <Image
+                src={imagen}
+                alt={item.departamento}
+                width="700"
+                height="400"
+              />
+            </div>
+            <div className="px-6 py-4 flex align-middle items-center cursor-pointer">
+              <p className="font-bold text-4xl pr-2">{item.departamento}</p>
+              <FaAngleDoubleRight fontSize="30" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
-
 export default CardItem;

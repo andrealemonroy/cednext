@@ -77,7 +77,6 @@ export default function Home({
   };
   const exchange = (values) => {
     // setOnlineExchange()
-    console.log(values);
     let update;
     values.currencySent === "PEN"
       ? (update = onlineExchangeHouses.map((item) => {
