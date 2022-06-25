@@ -7,7 +7,7 @@ import HomeChangeDetails from "../components/homeChangeDetails";
 import Money from "../components/Money";
 import Image from "next/image";
 import CardItem from "../components/CardItem";
-
+import AdsSlot from '../components/ads/AdsSlot';
 const initialHome = {
   id: "148",
   longitud: "-77.03248380",
@@ -60,6 +60,7 @@ const ExchangeHouses = ({
   districts,
   onlineExchangeHouses,
   menu,
+  ads
 }) => {
   const [departamentos, setDepartamentos] = useState(departaments);
   const [provincias, setProvincias] = useState(provinces);
@@ -73,6 +74,10 @@ const ExchangeHouses = ({
   const [district, setDistrict] = useState("1251");
   const [homeChange, setHomeChange] = useState(false);
   const [inicio, setInicio] = useState(true);
+
+  const { div_id: embi } = ads.find((item) => item.name === 'd_embi_ced_39');
+  const { div_id: dF728x90 } = ads.find((item) => item.name === 'dF728x90');
+  const { div_id: dF300x250 } = ads.find((item) => item.name === 'dF300x250');
 
   useEffect(() => {
     refresh();
@@ -155,6 +160,7 @@ const ExchangeHouses = ({
   return (
     <div className="h-[100%]">
       <Menu menu={menu} onlineExchangeHouses={onlineExchangeHouses} />
+      <AdsSlot slodId={embi} />
       <div className="container grid mb-48 md:mb-40 lg:mb-8 grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 pt-10 justify-between ">
         <div className="col-span-1 pl-6 sm:px-6 md:px-6 lg:px-2 align-middle">
           <Title type="h7" text="Cambio de monedas en Perú" align="center" />
@@ -298,6 +304,7 @@ export const getStaticProps = async () => {
   const { data: provinces } = await api.getProvinces(idDep);
   const idProv = provinces[0].id;
   const { data: districts } = await api.getDistricts(idDep, idProv);
+  const { data: ads } = await api.publicidad();
   return {
     props: {
       menu,
@@ -305,6 +312,7 @@ export const getStaticProps = async () => {
       departaments,
       provinces,
       districts,
+      ads
     },
   };
 };

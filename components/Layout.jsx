@@ -14,8 +14,8 @@ import Footer from './Footer/Footer';
 export const Layout = ({ children, pageProps: { ads = null } }) => {
   const router = useRouter();
 
-  const { div_id: skin } = ads.find((item) => item.name === 'skin');
-  const { div_id: top0 } = ads.find((item) => item.name === 'top0');
+  const { div_id: skin } = ads?.find((item) => item.name === 'skin');
+  const { div_id: top0 } = ads?.find((item) => item.name === 'top0');
 
   useEffect(() => {
     appendgtm();
